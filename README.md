@@ -1,4 +1,7 @@
-# My [Leetcode](https://leetcode.com/) solutions
+# My LeetCode solutions
+
+[LeetCode](https://leetcode.com/) is an online platform with hundreds of programming problems to help you enhance your skills, expand your knowledge and prepare for technical conding interviews.
+This repository contains some of my solutions to the problems in Python.
 
 **Why use Python?**
 I think Python is a good language for quickly writing elegant and readable programs.
