@@ -13,6 +13,6 @@ The problems are sorted by category.
 
 ## Array
 
-Difficulty | Problem Title | My Python Implementation
-:-- | :-- | :--
-Easy | [Two Sum](https://leetcode.com/problems/two-sum/) | [Solution](./python/two-sum/two_sum.py)
+| # | Difficulty | Problem Title | Implementation |
+|:--|:-----------|:--------------|:---------------|
+| 1 | Easy | [Two Sum](https://leetcode.com/problems/two-sum/) | [Python](./python/two-sum/two_sum.py) |
