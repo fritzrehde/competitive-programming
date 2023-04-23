@@ -31,3 +31,4 @@ Each of the Python solution files contains the problem description, several (dif
 | Difficulty | Problem Title | Implementation |
 |:-----------|:--------------|:---------------|
 | Easy | [Arrays - DS](https://www.hackerrank.com/challenges/arrays-ds/problem) | [Python](./hackerrank/arrays-ds/arrays_ds.py) |
+| Easy | [Array Left Rotation](https://www.hackerrank.com/challenges/array-left-rotation/problem) | [Python](./hackerrank/array-left-rotation/array_left_rotation.py) |
