@@ -32,3 +32,9 @@ Each of the Python solution files contains the problem description, several (dif
 |:-----------|:--------------|:---------------|
 | Easy | [Arrays - DS](https://www.hackerrank.com/challenges/arrays-ds/problem) | [Python](./hackerrank/arrays-ds/arrays_ds.py) |
 | Easy | [Array Left Rotation](https://www.hackerrank.com/challenges/array-left-rotation/problem) | [Python](./hackerrank/array-left-rotation/array_left_rotation.py) |
+
+### Linked Lists
+
+| Difficulty | Problem Title | Implementation |
+|:-----------|:--------------|:---------------|
+| Easy | [Reverse a Linked List](https://www.hackerrank.com/challenges/reverse-a-linked-list/problem) | [Python](./hackerrank/reverse-a-linked-list/reverse_a_linked_list.py) |

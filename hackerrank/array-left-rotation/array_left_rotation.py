@@ -26,7 +26,7 @@ class Solution:
     Time:      O(3n) -> O(n), perform addition, modulo and assignment operation every iteration
     Space:     O(n), create the rotated replica of `arr` before returning it
     """
-    def listComprehension(self, d: int, arr: list[int]) -> list[int]:
+    def shiftIndex(self, d: int, arr: list[int]) -> list[int]:
         # modulo below will fail for n=0
         if not arr: return arr
 
