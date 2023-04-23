@@ -9,12 +9,12 @@
 
 def test():
     # specify approach
-    twoSum = Solution().onePass
+    two_sum = Solution().one_pass
 
     # pytest
-    assert twoSum([2,7,11,15], 9) == [0,1]
-    assert twoSum([3,2,4], 6) == [1,2]
-    assert twoSum([3,3], 6) == [0,1]
+    assert two_sum([2,7,11,15], 9) == [0,1]
+    assert two_sum([3,2,4], 6) == [1,2]
+    assert two_sum([3,3], 6) == [0,1]
 
 class Solution:
     """
@@ -38,7 +38,7 @@ class Solution:
     Space:     O(n), space for dictionary
     Leetcode:  62 ms runtime, 15.4 MB memory
     """
-    def twoPass(self, nums: list[int], target: int) -> list[int]:
+    def two_pass(self, nums: list[int], target: int) -> list[int]:
         # create dict of the complements (value and index) of each number
         complements = {target-num:i for i,num in enumerate(nums)}
 
@@ -54,7 +54,7 @@ class Solution:
     Space:     O(n), space for dictionary
     Leetcode:  51 ms runtime, 15.1 MB memory
     """
-    def onePass(self, nums: list[int], target: int) -> list[int]:
+    def one_pass(self, nums: list[int], target: int) -> list[int]:
         complements = dict()
         for i, num in enumerate(nums):
             complement = target - num
