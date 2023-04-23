@@ -36,7 +36,7 @@ class Node(object):
 
 def test():
     # specify approach
-    reverse = Solution().recursive
+    reverse = Solution().iterative_without_tmp_node
 
     # helper
     def test(input: list, expected: list):
@@ -62,7 +62,7 @@ class Solution:
     Time:      O(n), iteration through entire linked list
     Space:     O(1), in-place
     """
-    def iterativeWithTmpNode(self, head: Node) -> Node:
+    def iterative_with_tmp_node(self, head: Node) -> Node:
         prev, cur = None, head
 
         while cur:
@@ -84,7 +84,7 @@ class Solution:
     """
     Approach:  Iterative with no temporary nodes, otherwise same as above
     """
-    def iterativeWithoutTmpNode(self, head: Node) -> Node:
+    def iterative_without_tmp_node(self, head: Node) -> Node:
         prev, cur = None, head
 
         while cur:
@@ -94,7 +94,6 @@ class Solution:
 
     """
     Approach:  Recursive
-    Idea:      Loop through linked list and always swap cur with prev node (and adjust next attributes)
     Time:      O(n), iteration through entire linked list
     Space:     O(n), using call stack to store recursive function calls, max call stack depth == list length
     """

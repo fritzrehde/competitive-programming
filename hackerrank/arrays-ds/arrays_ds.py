@@ -8,13 +8,13 @@
 
 def test():
     # specify approach
-    reverseArray = Solution().loop
+    reverse_array = Solution().loop
 
     # pytest
-    assert reverseArray([1,2,3,4,5]) == [5,4,3,2,1]
-    assert reverseArray([1,2,1]) == [1,2,1]
-    assert reverseArray([1,1,1]) == [1,1,1]
-    assert reverseArray([]) == []
+    assert reverse_array([1,2,3,4,5]) == [5,4,3,2,1]
+    assert reverse_array([1,2,1]) == [1,2,1]
+    assert reverse_array([1,1,1]) == [1,1,1]
+    assert reverse_array([]) == []
 
 class Solution:
     """
@@ -23,7 +23,7 @@ class Solution:
     Time:      O(n), must iterate through entire list at least once to "see" every element
     Space:     O(1), `reverse()` operates in-place
     """
-    def stdLib(self, arr: list[int]) -> list[int]:
+    def std_lib(self, arr: list[int]) -> list[int]:
         arr.reverse()
         return arr
 
