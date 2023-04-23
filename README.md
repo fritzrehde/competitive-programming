@@ -1,4 +1,4 @@
-# My Solutions to Competitive Programming Problems
+# Competitive Programming
 
 This repository contains my Python solutions to competitive programming problems from various online platforms.
 
@@ -7,7 +7,7 @@ I think Python is a good language for quickly writing elegant and readable progr
 Of course, performance will be compromised, but performance is not the main goal of this project for now.
 I am mostly solving these puzzles to improve my knowledge in Algorithms and Data Structures.
 
-Each of my problem solutions contains several (differently performing) implementations, as well as time and space complexity explanations.
+Each of the Python solution files contains the problem description, several (differently performing) implementations, as well as time and space complexity explanations.
 
 
 ## Table of Contents
@@ -16,10 +16,18 @@ Each of my problem solutions contains several (differently performing) implement
 - [Hackerrank](#hackerrank)
 
 
-## [LeetCode](https://leetcode.com/)
+## [LeetCode](https://leetcode.com)
 
 ### Array
 
 | # | Difficulty | Problem Title | Implementation |
 |:--|:-----------|:--------------|:---------------|
 | 1 | Easy | [Two Sum](https://leetcode.com/problems/two-sum/) | [Python](./leetcode/001-two-sum/two_sum.py) |
+
+## [Hackerrank](https://www.hackerrank.com)
+
+### Array
+
+| Difficulty | Problem Title | Implementation |
+|:-----------|:--------------|:---------------|
+| Easy | [Arrays - DS](https://www.hackerrank.com/challenges/arrays-ds/problem) | [Python](./hackerrank/arrays-ds/arrays_ds.py) |
