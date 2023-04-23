@@ -8,7 +8,7 @@
 
 def test():
     # specify approach
-    reverseArray= Solution().loop
+    reverseArray = Solution().loop
 
     # pytest
     assert reverseArray([1,2,3,4,5]) == [5,4,3,2,1]
