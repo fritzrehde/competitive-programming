@@ -19,6 +19,7 @@ Each of the code solution files contains the problem description, several (diffe
 |:--|:-----------|:--------------|:---------------|
 | 1 | Easy | [Two Sum](https://leetcode.com/problems/two-sum/) | [Python](./leetcode/001-two-sum/two_sum.py) |
 | 2 | Medium | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | [Python](./leetcode/002-add-two-numbers/add_two_numbers.py) |
+| 3 | Medium | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [Python](./leetcode/003-longest-substring-without-repeating-characters/longest_substring_without_repeating_characters.py) |
 
 
 ## [Hackerrank](https://www.hackerrank.com)
