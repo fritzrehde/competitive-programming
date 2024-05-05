@@ -1,13 +1,8 @@
 # Competitive Programming
 
-This repository contains my Python solutions to competitive programming problems from various online platforms.
+This repository contains my solutions to competitive programming problems from various online platforms.
 
-**Why use Python?**
-I think Python is a good language for quickly writing elegant and readable programs.
-Of course, performance will be compromised, but performance is not the main goal of this project for now.
-I am mostly solving these puzzles to improve my knowledge in Algorithms and Data Structures.
-
-Each of the Python solution files contains the problem description, several (differently performing) implementations, as well as time and space complexity explanations.
+Each of the code solution files contains the problem description, several (differently performing) implementations, as well as time and space complexity analysis.
 
 
 ## Table of Contents
@@ -24,6 +19,7 @@ Each of the Python solution files contains the problem description, several (dif
 |:--|:-----------|:--------------|:---------------|
 | 1 | Easy | [Two Sum](https://leetcode.com/problems/two-sum/) | [Python](./leetcode/001-two-sum/two_sum.py) |
 
+
 ## [Hackerrank](https://www.hackerrank.com)
 
 ### Array
@@ -38,3 +34,11 @@ Each of the Python solution files contains the problem description, several (dif
 | Difficulty | Problem Title | Implementation |
 |:-----------|:--------------|:---------------|
 | Easy | [Reverse a Linked List](https://www.hackerrank.com/challenges/reverse-a-linked-list/problem) | [Python](./hackerrank/reverse-a-linked-list/reverse_a_linked_list.py) |
+
+
+## Programming Language Choices
+
+**Why Python?**
+I think Python is a good language for quickly writing elegant and readable programs.
+Of course, performance will be compromised, but performance is not the main goal of this project (for now).
+I am mostly solving these puzzles to improve my knowledge in Algorithms and Data Structures.
