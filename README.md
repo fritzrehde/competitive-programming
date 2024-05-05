@@ -18,6 +18,7 @@ Each of the code solution files contains the problem description, several (diffe
 | # | Difficulty | Problem Title | Implementation |
 |:--|:-----------|:--------------|:---------------|
 | 1 | Easy | [Two Sum](https://leetcode.com/problems/two-sum/) | [Python](./leetcode/001-two-sum/two_sum.py) |
+| 2 | Medium | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | [Python](./leetcode/002-add-two-numbers/add_two_numbers.py) |
 
 
 ## [Hackerrank](https://www.hackerrank.com)
