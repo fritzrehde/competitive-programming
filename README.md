@@ -13,8 +13,6 @@ Each of the code solution files contains the problem description, several (diffe
 
 ## [LeetCode](https://leetcode.com)
 
-### Array
-
 | # | Difficulty | Problem Title | Implementation |
 |:--|:-----------|:--------------|:---------------|
 | 1 | Easy | [Two Sum](https://leetcode.com/problems/two-sum/) | [Python](./leetcode/001-two-sum/two_sum.py) |
