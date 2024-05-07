@@ -82,7 +82,7 @@ class Solution:
         # dp[l][r] is True if the substring from index l to r is a palindrome, and False otherwise.
         dp = [[False] * n for _ in range(0, n)]
 
-        # Calculate dp[l][r] for in increasing order of r-l, i.e. substring length.
+        # Calculate dp[l][r] in increasing order of r-l, i.e. substring length.
         for diff_l_r in range(0, n):
             # The order of calculating subproblems of the same substring length is irrelevant.
             for l in range(n - diff_l_r):
@@ -122,7 +122,7 @@ class Solution:
         # dp[l][r] is True if the substring from index l to r is a palindrome, and False otherwise.
         dp = [[False] * n for _ in range(0, n)]
 
-        # Calculate dp[l][r] for in increasing order of r-l, i.e. substring length.
+        # Calculate dp[l][r] in increasing order of r-l, i.e. substring length.
         for diff_l_r in range(0, n):
             # The order of calculating subproblems of the same substring length is irrelevant.
             for l in range(n - diff_l_r):
