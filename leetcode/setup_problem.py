@@ -12,7 +12,7 @@ this_dir = os.path.dirname(os.path.abspath(__file__))
 def create_leetcode_problem():
     # Prompting user for inputs
     problem_url = input("Enter the problem URL: ")
-    problem_id = input("Enter the problem number/identifier: ")
+    problem_id = input("Enter the problem identifier: ")
     problem_title = input("Enter the problem title: ")
     problem_difficulty = input("Enter the problem difficulty: ")
     problem_description = input("Enter the text describing the problem: ")
