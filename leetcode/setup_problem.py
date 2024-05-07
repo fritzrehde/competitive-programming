@@ -90,39 +90,39 @@ def create_leetcode_problem():
     # Create problem directory and file.
     os.makedirs(os.path.join(this_dir, dir_name))
     file_content = textwrap.dedent(f'''\
-        #!/usr/bin/env python3
+#!/usr/bin/env python3
 
-        # {problem_title_titled}
-        #
-        # {problem_url}
-        #
-        # {"# ".join(problem_description)}
-
-
-        def test():
-            """
-            Run `pytest <this-file > `.
-            """
-
-            def test_algo(algo):
-                assert 1 == 1
-
-            # Test all different algorithms/implementations
-            solution = Solution()
-            for algo in [solution.brute_force]:
-                test_algo(algo)
+# {problem_title_titled}
+#
+# {problem_url}
+#
+# {"\n# ".join(problem_description)}
 
 
-        class Solution:
-            def brute_force(self):
-                """
-                Approach:  Brute-force.
-                Idea:      ?
-                Time:      O(?): ?
-                Space:     O(?): ?
-                Leetcode:  ? ms runtime, ? MB memory
-                """
-    ''')
+def test():
+    """
+    Run `pytest <this-file > `.
+    """
+
+    def test_algo(algo):
+        assert 1 == 1
+
+    # Test all different algorithms/implementations
+    solution = Solution()
+    for algo in [solution.brute_force]:
+        test_algo(algo)
+
+
+class Solution:
+    def brute_force(self):
+        """
+        Approach:  Brute-force.
+        Idea:      ?
+        Time:      O(?): ?
+        Space:     O(?): ?
+        Leetcode:  ? ms runtime, ? MB memory
+        """
+''')
     with open(os.path.join(this_dir, dir_name, file_name), 'w') as f:
         f.write(file_content)
 
