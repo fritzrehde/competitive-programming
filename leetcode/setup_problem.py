@@ -28,8 +28,8 @@ def create_leetcode_problem():
             problem_url = problem_url[:-len(end)]
             break
 
-    # Convert problem number to 3 digit number, filling unused digit spaces with zeros.
-    digits = 3
+    # Convert problem number to 4 digit number, filling unused digit spaces with zeros.
+    digits = 4
     problem_id_filled = str(problem_id).zfill(digits)
     if (len(problem_id_filled) > digits):
         raise RuntimeError(f"Problem id has too many digitis: {problem_id}")
