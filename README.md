@@ -21,6 +21,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 5 | Medium | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | [Python](./leetcode/005-longest-palindromic-substring/longest_palindromic_substring.py) |
 | 22 | Medium | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | [Python](./leetcode/022-generate-parentheses/generate_parentheses.py) |
 | 53 | Medium | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [Python](./leetcode/053-maximum-subarray/maximum_subarray.py) |
+| 70 | Easy | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [Python](./leetcode/070-climbing-stairs/climbing_stairs.py) |
 
 
 ## [Hackerrank](https://www.hackerrank.com)
