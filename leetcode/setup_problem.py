@@ -100,7 +100,7 @@ def create_leetcode_problem():
                     raise RuntimeError(
                         "New problem id and existing problem id were the same")
                 elif new_problem_id < existing_problem_id:
-                    return i - 1
+                    return i
 
         raise RuntimeError(
             "Did not find a suitable line to insert new problem in readme")
