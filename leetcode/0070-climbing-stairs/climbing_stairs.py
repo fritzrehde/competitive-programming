@@ -40,7 +40,7 @@ class Solution:
         Idea:      Define a subproblem dp[i] as the number of ways to climb i steps, and calculate dp[i] recursively.
         Time:      O(n): Calculating each subproblem is O(1), and there are n subproblems.
         Space:     O(n): The DP table is 1D with n elements.
-        Leetcode:  ? ms runtime, ? MB memory
+        Leetcode:  30 ms runtime, 16.46 MB memory
         """
 
         # Subproblem: dp[i] means how many ways there are to climb i steps.
