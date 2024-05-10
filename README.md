@@ -22,6 +22,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 5 | Medium | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | [Python](./leetcode/0005-longest-palindromic-substring/longest_palindromic_substring.py) |
 | 6 | Medium | [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) | [Python](./leetcode/0006-zigzag-conversion/zigzag_conversion.py) |
 | 7 | Medium | [Reverse Integer](https://leetcode.com/problems/reverse-integer/) | [Python](./leetcode/0007-reverse-integer/reverse_integer.py) |
+| 14 | Easy | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Python](./leetcode/0014-longest-common-prefix/longest_common_prefix.py) |
 | 22 | Medium | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | [Python](./leetcode/0022-generate-parentheses/generate_parentheses.py) |
 | 53 | Medium | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [Python](./leetcode/0053-maximum-subarray/maximum_subarray.py) |
 | 70 | Easy | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [Python](./leetcode/0070-climbing-stairs/climbing_stairs.py) |
