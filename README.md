@@ -27,6 +27,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 22 | Medium | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | [Python](./leetcode/0022-generate-parentheses/generate_parentheses.py) |
 | 53 | Medium | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [Python](./leetcode/0053-maximum-subarray/maximum_subarray.py) |
 | 70 | Easy | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [Python](./leetcode/0070-climbing-stairs/climbing_stairs.py) |
+| 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
 
 
 ## [Hackerrank](https://www.hackerrank.com)
