@@ -41,9 +41,11 @@ def create_leetcode_problem():
     problem_difficulty = problem_difficulty.title()
 
     # Only keep `https://leetcode.com/problems/<problem-name>/`, and remove anything after.
-    match = re.match(r"(https://leetcode.com/problems/[^/]+/)", problem_url)
+    match = re.match(r"https://leetcode.com/problems/([^/]+)/", problem_url)
     if match:
         problem_url = match.group(0)
+        # Leetcode already has a nicely formatted name to use for the directory and file names, so extract it.
+        problem_name = match.group(1)
     else:
         raise RuntimeError("failed to parse leetcode problem url")
 
@@ -57,9 +59,9 @@ def create_leetcode_problem():
     problem_title_titled = problem_title.title()
 
     # Get the directory and file names for the problem.
-    problem_title_iter = problem_title.lower().split()
-    dir_name = f"{problem_id_filled}-{"-".join(problem_title_iter)}"
-    file_name = f"{"_".join(problem_title_iter)}.py"
+    problem_name = problem_name.lower()
+    dir_name = f"{problem_id_filled}-{problem_name}"
+    file_name = f"{problem_name.replace("-", "_")}.py"
 
     # Split each line of the description into chunks of at most 80-2=78 (since "# " starts each line).
     wrapper = textwrap.TextWrapper(
