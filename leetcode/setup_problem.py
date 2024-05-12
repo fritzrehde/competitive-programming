@@ -12,6 +12,7 @@ import itertools
 this_dir = os.path.dirname(os.path.abspath(__file__))
 
 # TODO: prepare the git commit message as well
+# TODO: don't make roman numerals (II, IV, etc.) title case
 
 
 def create_leetcode_problem():

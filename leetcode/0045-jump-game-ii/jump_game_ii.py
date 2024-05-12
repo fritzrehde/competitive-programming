@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Jump Game Ii
+# Jump Game II
 #
 # https://leetcode.com/problems/jump-game-ii/
 #
