@@ -26,6 +26,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 14 | Easy | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Python](./leetcode/0014-longest-common-prefix/longest_common_prefix.py) |
 | 15 | Medium | [3Sum](https://leetcode.com/problems/3sum/) | [Python](./leetcode/0015-3sum/3sum.py) |
 | 22 | Medium | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | [Python](./leetcode/0022-generate-parentheses/generate_parentheses.py) |
+| 45 | Medium | [Jump Game Ii](https://leetcode.com/problems/jump-game-ii/) | [Python](./leetcode/0045-jump-game-ii/jump_game_ii.py) |
 | 50 | Medium | [Pow(X, N)](https://leetcode.com/problems/powx-n/) | [Python](./leetcode/0050-powx-n/powx_n.py) |
 | 53 | Medium | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [Python](./leetcode/0053-maximum-subarray/maximum_subarray.py) |
 | 70 | Easy | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [Python](./leetcode/0070-climbing-stairs/climbing_stairs.py) |
