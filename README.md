@@ -28,6 +28,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 22 | Medium | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | [Python](./leetcode/0022-generate-parentheses/generate_parentheses.py) |
 | 45 | Medium | [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | [Python](./leetcode/0045-jump-game-ii/jump_game_ii.py) |
 | 50 | Medium | [Pow(X, N)](https://leetcode.com/problems/powx-n/) | [Python](./leetcode/0050-powx-n/powx_n.py) |
+| 51 | Hard | [N-Queens](https://leetcode.com/problems/n-queens/) | [Python](./leetcode/0051-n-queens/n_queens.py) |
 | 53 | Medium | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [Python](./leetcode/0053-maximum-subarray/maximum_subarray.py) |
 | 70 | Easy | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [Python](./leetcode/0070-climbing-stairs/climbing_stairs.py) |
 | 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
