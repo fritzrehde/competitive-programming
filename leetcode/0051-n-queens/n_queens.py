@@ -172,3 +172,5 @@ class Solution:
         # Find all ways we can place n (indistinguishable) queens onto n^2 board positions. We are interested only in the combinations (rather than permutations), because we do not care about the order in which the queens are placed onto the board, we only care about the final board.
         possible_games = itertools.combinations(possible_board_positions, n)
         return [format_game(game) for game in possible_games if game_is_valid(game)]
+
+        # Property of the problem: we know that in a valid board, there cannot be multiple queens in the same row or column. Therefore, we can decrease the size of our search space by only considering such boards in the first place.
