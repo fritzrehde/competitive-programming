@@ -55,7 +55,7 @@ class Solution:
         Idea:      Same as recursive approach.
         Time:      O(n): From each node, we traverse to the deepest, left-most node, visit it, and then "recurse" into its right node.
         Space:     O(n): We keep a stack of nodes we still need to explore around, and every node is part of this stack exactly once (so gets pushed to and popped from the stack exactly once).
-        Leetcode:  43 ms runtime, 79.49 MB memory
+        Leetcode:  43 ms runtime, 16.46 MB memory
         """
 
         inorder = []
