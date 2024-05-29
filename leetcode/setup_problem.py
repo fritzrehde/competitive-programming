@@ -135,7 +135,7 @@ def create_leetcode_problem():
 
 def test():
     """
-    Run `pytest <this-file > `.
+    Run `pytest <this-file>`.
     """
 
     def test_algo(algo):
