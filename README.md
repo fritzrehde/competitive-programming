@@ -38,6 +38,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 144 | Easy | [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | [Python](./leetcode/0144-binary-tree-preorder-traversal/binary_tree_preorder_traversal.py) |
 | 292 | Easy | [Nim Game](https://leetcode.com/problems/nim-game/) | [Python](./leetcode/0292-nim-game/nim_game.py) |
 | 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
+| 2037 | Easy | [Minimum Number Of Moves To Seat Everyone](https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/) | [Python](./leetcode/2037-minimum-number-of-moves-to-seat-everyone/minimum_number_of_moves_to_seat_everyone.py) |
 
 
 ## [Hackerrank](https://www.hackerrank.com)
