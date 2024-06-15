@@ -40,6 +40,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 945 | Medium | [Minimum Increment To Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/) | [Python](./leetcode/0945-minimum-increment-to-make-array-unique/minimum_increment_to_make_array_unique.py) |
 | 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
 | 2037 | Easy | [Minimum Number Of Moves To Seat Everyone](https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/) | [Python](./leetcode/2037-minimum-number-of-moves-to-seat-everyone/minimum_number_of_moves_to_seat_everyone.py) |
+| 2085 | Easy | [Count Common Words With One Occurrence](https://leetcode.com/problems/count-common-words-with-one-occurrence/) | [Python](./leetcode/2085-count-common-words-with-one-occurrence/count_common_words_with_one_occurrence.py) |
 
 
 ## [Hackerrank](https://www.hackerrank.com)
