@@ -35,6 +35,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 53 | Medium | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [Python](./leetcode/0053-maximum-subarray/maximum_subarray.py) |
 | 70 | Easy | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [Python](./leetcode/0070-climbing-stairs/climbing_stairs.py) |
 | 94 | Easy | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | [Python](./leetcode/0094-binary-tree-inorder-traversal/binary_tree_inorder_traversal.py) |
+| 121 | Easy | [Best Time To Buy And Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Python](./leetcode/0121-best-time-to-buy-and-sell-stock/best_time_to_buy_and_sell_stock.py) |
 | 144 | Easy | [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | [Python](./leetcode/0144-binary-tree-preorder-traversal/binary_tree_preorder_traversal.py) |
 | 292 | Easy | [Nim Game](https://leetcode.com/problems/nim-game/) | [Python](./leetcode/0292-nim-game/nim_game.py) |
 | 633 | Medium | [Sum Of Square Numbers](https://leetcode.com/problems/sum-of-square-numbers/) | [Python](./leetcode/0633-sum-of-square-numbers/sum_of_square_numbers.py) |
