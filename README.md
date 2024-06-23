@@ -41,6 +41,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 210 | Medium | [Course Schedule Ii](https://leetcode.com/problems/course-schedule-ii/) | [Python](./leetcode/0210-course-schedule-ii/course_schedule_ii.py) |
 | 292 | Easy | [Nim Game](https://leetcode.com/problems/nim-game/) | [Python](./leetcode/0292-nim-game/nim_game.py) |
 | 633 | Medium | [Sum Of Square Numbers](https://leetcode.com/problems/sum-of-square-numbers/) | [Python](./leetcode/0633-sum-of-square-numbers/sum_of_square_numbers.py) |
+| 743 | Medium | [Network Delay Time](https://leetcode.com/problems/network-delay-time/) | [Python](./leetcode/0743-network-delay-time/network_delay_time.py) |
 | 945 | Medium | [Minimum Increment To Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/) | [Python](./leetcode/0945-minimum-increment-to-make-array-unique/minimum_increment_to_make_array_unique.py) |
 | 1052 | Medium | [Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/) | [Python](./leetcode/1052-grumpy-bookstore-owner/grumpy_bookstore_owner.py) |
 | 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
