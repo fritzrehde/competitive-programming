@@ -27,7 +27,7 @@ def test():
 
     # Test all different algorithms/implementations
     solution = Solution()
-    for algo in [solution.brute_force, solution.one_pass]:
+    for algo in [solution.brute_force, solution.one_pass, solution.two_pass]:
         test_algo(algo)
 
 
@@ -43,7 +43,7 @@ class Solution:
 
         len_ = len(nums)
         for i in range(len_):
-            for j in range(i+1, len_):
+            for j in range(i + 1, len_):
                 if (nums[i] + nums[j] == target):
                     return [i, j]
 
@@ -69,5 +69,29 @@ class Solution:
                 return [complement_idx, i]
             else:
                 nums_indices[num] = i
+
+        return None
+
+    def two_pass(self, nums: list[int], target: int) -> list[int]:
+        """
+        Approach:  Two-pass with dictionary.
+        Idea:      Only check if complement for a value has already been seen.
+        Time:      O(n), list is traversed once to build up nums_indices and once for complement search.
+        Space:     O(n), space for hashmap
+        Leetcode:  70 ms runtime, 17.75 MB memory
+        """
+        # Map each number to index in array
+        nums_indices = dict()
+        for i, num in enumerate(nums):
+            nums_indices[num] = i
+
+        for i, num in enumerate(nums):
+            complement = target - num
+            # Check if the complement exists in the array.
+            if complement in nums_indices:
+                complement_idx = nums_indices[complement]
+                # We can't use the same index twice.
+                if complement_idx != i:
+                    return sorted([complement_idx, i])
 
         return None
