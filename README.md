@@ -47,6 +47,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
 | 1443 | Medium | [Minimum Time To Collect All Apples In A Tree](https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/) | [Python](./leetcode/1443-minimum-time-to-collect-all-apples-in-a-tree/minimum_time_to_collect_all_apples_in_a_tree.py) |
 | 1518 | Easy | [Water Bottles](https://leetcode.com/problems/water-bottles/) | [Python](./leetcode/1518-water-bottles/water_bottles.py) |
+| 1717 | Medium | [Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings/) | [Python](./leetcode/1717-maximum-score-from-removing-substrings/maximum_score_from_removing_substrings.py) |
 | 2037 | Easy | [Minimum Number Of Moves To Seat Everyone](https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/) | [Python](./leetcode/2037-minimum-number-of-moves-to-seat-everyone/minimum_number_of_moves_to_seat_everyone.py) |
 | 2085 | Easy | [Count Common Words With One Occurrence](https://leetcode.com/problems/count-common-words-with-one-occurrence/) | [Python](./leetcode/2085-count-common-words-with-one-occurrence/count_common_words_with_one_occurrence.py) |
 
