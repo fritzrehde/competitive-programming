@@ -76,26 +76,26 @@ class Solution:
         def visit(node):
             order.append(node.val)
 
-        # A node can be visited next from: "parent", "left_child", "right_child"
-        next_visited_from = dict()
+        # A node will be come across next from: "parent", "left_child", "right_child"
+        next_come_across_from = dict()
 
         if root:
-            next_visited_from[root] = "parent"
+            next_come_across_from[root] = "parent"
             stack = [root]
             while stack:
                 node = stack[-1]
-                match next_visited_from[node]:
+                match next_come_across_from[node]:
                     case "parent":
                         # No child visited yet, so visit left child.
-                        next_visited_from[node] = "left_child"
+                        next_come_across_from[node] = "left_child"
                         if node.left:
-                            next_visited_from[node.left] = "parent"
+                            next_come_across_from[node.left] = "parent"
                             stack.append(node.left)
                     case "left_child":
                         # Left child visited, so visit right child.
-                        next_visited_from[node] = "right_child"
+                        next_come_across_from[node] = "right_child"
                         if node.right:
-                            next_visited_from[node.right] = "parent"
+                            next_come_across_from[node.right] = "parent"
                             stack.append(node.right)
                     case "right_child":
                         # Left and right children have been visited, so this is the last time we visit this node.
@@ -122,9 +122,9 @@ class Solution:
         if root:
             stack = [(root, False)]
             while stack:
-                (node, may_be_visited) = stack.pop()
+                (node, may_be_visited_now) = stack.pop()
                 if node:
-                    if may_be_visited:
+                    if may_be_visited_now:
                         visit(node)
                     else:
                         # Post-order: a node may only be visited after its children.
