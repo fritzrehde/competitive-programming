@@ -37,6 +37,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 94 | Easy | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | [Python](./leetcode/0094-binary-tree-inorder-traversal/binary_tree_inorder_traversal.py) |
 | 121 | Easy | [Best Time To Buy And Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Python](./leetcode/0121-best-time-to-buy-and-sell-stock/best_time_to_buy_and_sell_stock.py) |
 | 144 | Easy | [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | [Python](./leetcode/0144-binary-tree-preorder-traversal/binary_tree_preorder_traversal.py) |
+| 145 | Easy | [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) | [Python](./leetcode/0145-binary-tree-postorder-traversal/binary_tree_postorder_traversal.py) |
 | 207 | Medium | [Course Schedule](https://leetcode.com/problems/course-schedule/) | [Python](./leetcode/0207-course-schedule/course_schedule.py) |
 | 210 | Medium | [Course Schedule Ii](https://leetcode.com/problems/course-schedule-ii/) | [Python](./leetcode/0210-course-schedule-ii/course_schedule_ii.py) |
 | 292 | Easy | [Nim Game](https://leetcode.com/problems/nim-game/) | [Python](./leetcode/0292-nim-game/nim_game.py) |
