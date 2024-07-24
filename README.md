@@ -27,6 +27,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 14 | Easy | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Python](./leetcode/0014-longest-common-prefix/longest_common_prefix.py) |
 | 15 | Medium | [3Sum](https://leetcode.com/problems/3sum/) | [Python](./leetcode/0015-3sum/3sum.py) |
 | 20 | Easy | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | [Python](./leetcode/0020-valid-parentheses/valid_parentheses.py) |
+| 21 | Easy | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | [Python](./leetcode/0021-merge-two-sorted-lists/merge_two_sorted_lists.py) |
 | 22 | Medium | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | [Python](./leetcode/0022-generate-parentheses/generate_parentheses.py) |
 | 28 | Easy | [Find The Index Of The First Occurrence In A String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) | [Python](./leetcode/0028-find-the-index-of-the-first-occurrence-in-a-string/find_the_index_of_the_first_occurrence_in_a_string.py) |
 | 45 | Medium | [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | [Python](./leetcode/0045-jump-game-ii/jump_game_ii.py) |
