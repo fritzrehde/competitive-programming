@@ -90,8 +90,8 @@ class Solution:
 
                     elif node_to_delete.left and node_to_delete.right:
                         # Two children:
-                        # - next in-order successor: left-most node in right subtree OR
-                        # - next in-order predecessor: right-most node in left subtree
+                        # - in-order successor: left-most node in right subtree OR
+                        # - in-order predecessor: right-most node in left subtree
                         replacement = get_leftmost_node(node_to_delete.right)
                         # Replace deleted node('s value) with replacement node.
                         node_to_delete.val = replacement.val

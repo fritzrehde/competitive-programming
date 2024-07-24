@@ -87,7 +87,7 @@ class Solution:
         """
 
         # TreeNode **cur = &root;
-        # while( *cur )
+        # while( *cur != NULL )
         # 	cur = (val > (*cur)->val) ? &(*cur)->right : &(*cur)->left;
         # *cur = new TreeNode(val);
         # return root;
