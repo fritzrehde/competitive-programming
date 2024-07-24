@@ -46,6 +46,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 210 | Medium | [Course Schedule Ii](https://leetcode.com/problems/course-schedule-ii/) | [Python](./leetcode/0210-course-schedule-ii/course_schedule_ii.py) |
 | 271 | Medium | [Encode And Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) | [Python](./leetcode/0271-encode-and-decode-strings/encode_and_decode_strings.py) |
 | 292 | Easy | [Nim Game](https://leetcode.com/problems/nim-game/) | [Python](./leetcode/0292-nim-game/nim_game.py) |
+| 450 | Medium | [Delete Node In A Bst](https://leetcode.com/problems/delete-node-in-a-bst/) | [Python](./leetcode/0450-delete-node-in-a-bst/delete_node_in_a_bst.py) |
 | 633 | Medium | [Sum Of Square Numbers](https://leetcode.com/problems/sum-of-square-numbers/) | [Python](./leetcode/0633-sum-of-square-numbers/sum_of_square_numbers.py) |
 | 692 | Medium | [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) | [Python](./leetcode/0692-top-k-frequent-words/top_k_frequent_words.py) |
 | 701 | Medium | [Insert Into A Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/) | [Python](./leetcode/0701-insert-into-a-binary-search-tree/insert_into_a_binary_search_tree.py) |
