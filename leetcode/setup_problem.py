@@ -7,7 +7,8 @@ import re
 import textwrap
 import tempfile
 import subprocess
-import itertools
+from typing import List
+import leetcode_graphql_api as leetcode
 
 this_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -15,71 +16,78 @@ this_dir = os.path.dirname(os.path.abspath(__file__))
 # TODO: don't make roman numerals (II, IV, etc.) title case
 
 
-def create_leetcode_problem():
-    def input_editor(prompt: str) -> str:
-        with tempfile.NamedTemporaryFile(mode='r+', delete=True) as f:
-            # Ensure prompt is written to disk before opening editor.
-            f.write(prompt)
-            f.flush()
+def input_editor(prompt: str) -> List[str]:
+    with tempfile.NamedTemporaryFile(mode='r+', delete=True) as f:
+        # Ensure prompt is written to disk before opening editor.
+        f.write(f"{prompt}\n")
+        f.flush()
 
-            # Open the editor
-            editor = os.getenv('EDITOR', 'vim')
-            subprocess.call([editor, f.name])
+        # Open the editor
+        editor = os.getenv('EDITOR', 'vim')
+        subprocess.call([editor, f.name])
 
-            # The editor leaves the file pointer at EOF, so move back to start.
-            f.seek(0)
-            return f.read()
+        # The editor leaves the file pointer at EOF, so move back to start.
+        f.seek(0)
+        return f.readlines()
 
+
+def read_question() -> leetcode.Question:
     # Prompting user for inputs
     problem_url = input("Enter the problem URL: ")
-    problem_id = input("Enter the problem identifier: ")
-    problem_title = input("Enter the problem title: ")
-    problem_difficulty = input("Enter the problem difficulty: ")
-    problem_description = input_editor(
-        "Replace this line with the text describing the problem.\n")
 
-    # Make the difficulty title-case.
-    problem_difficulty = problem_difficulty.title()
+    # Try calling leetcode's API to extract infos, otherwise input manually.
+    try:
+        return leetcode.get_question(problem_url)
+    except Exception:
+        pass
 
-    # Only keep `https://leetcode.com/problems/<problem-name>/`, and remove anything after.
-    match = re.match(r"https://leetcode.com/problems/([^/]+)/", problem_url)
-    if match:
-        problem_url = match.group(0)
-        # Leetcode already has a nicely formatted name to use for the directory and file names, so extract it.
-        problem_name = match.group(1)
-    else:
-        raise RuntimeError("failed to parse leetcode problem url")
+    id = int(input("Enter the problem identifier: "))
+    title = input("Enter the problem title: ").title()
+    difficulty = input("Enter the problem difficulty: ").title()
+    description_lines = input_editor(
+        "Replace this line with the text describing the problem.")
 
+    (url, title_slug) = leetcode.format_problem_url(problem_url)
+
+    return leetcode.Question(
+        id=id,
+        url=url,
+        title_slug=title_slug,
+        title=title,
+        description_lines=description_lines,
+        difficulty=difficulty,
+        code_template=None,
+        example_tests=None,
+    )
+
+
+def setup_question(question: leetcode.Question):
     # Convert problem number to 4 digit number, filling unused digit spaces with zeros.
     digits = 4
-    problem_id_filled = str(problem_id).zfill(digits)
-    if (len(problem_id_filled) > digits):
-        raise RuntimeError(f"Problem id has too many digitis: {problem_id}")
-
-    # Capitalize every word in problem title.
-    problem_title_titled = problem_title.title()
+    id_filled = str(question.id).zfill(digits)
+    if (len(id_filled) > digits):
+        raise RuntimeError(f"Problem id has too many digitis: {question.id}")
 
     # Get the directory and file names for the problem.
-    problem_name = problem_name.lower()
-    dir_name = f"{problem_id_filled}-{problem_name}"
-    file_name = f"{problem_name.replace("-", "_")}.py"
+    dir_name = f"{id_filled}-{question.title_slug}"
+    file_name = f"{question.title_slug.replace("-", "_")}.py"
 
     # Split each line of the description into chunks of at most 80-2=78 (since "# " starts each line).
     wrapper = textwrap.TextWrapper(
         width=78, break_long_words=False, replace_whitespace=False)
-    problem_description_lines = []
-    for line in problem_description.split('\n'):
+    wrapped_description_lines = []
+    for line in question.description_lines:
         # problem_description_lines.extend(wrapper.wrap(line))
         wrapped = wrapper.wrap(line)
         if wrapped:
-            problem_description_lines.extend(wrapped)
+            wrapped_description_lines.extend(wrapped)
         else:
             # Append an empty string to represent an empty line.
-            problem_description_lines.append("")
+            wrapped_description_lines.append("")
 
     # Remove the last description line if it was an empty newline.
-    if problem_description_lines[-1] == "":
-        problem_description_lines.pop()
+    if wrapped_description_lines[-1] == "":
+        wrapped_description_lines.pop()
 
     def find_readme_line_to_insert(readme: list[str], new_problem_id: int) -> int:
         # Find index of leetcode section
@@ -113,24 +121,27 @@ def create_leetcode_problem():
     with open(readme_path, 'r') as f:
         readme_lines = f.readlines()
         new_line_idx = find_readme_line_to_insert(
-            readme_lines, int(problem_id))
+            readme_lines, int(question.id))
         new_line_content = textwrap.dedent(f"""\
-            | {problem_id} | {problem_difficulty} | [{problem_title_titled}]({problem_url}) | [Python](./leetcode/{dir_name}/{file_name}) |
+            | {question.id} | {question.difficulty} | [{question.title}]({question.url}) | [Python](./leetcode/{dir_name}/{file_name}) |
         """)
         readme_lines.insert(new_line_idx, new_line_content)
     with open(readme_path, 'w') as f:
         f.writelines(readme_lines)
+
+    if question.example_tests is not None:
+        example_tests_lines = [f"assert algo({example_test.input_args}) == {example_test.expected_output_val}" for example_test in question.example_tests]
 
     # Create problem directory and file.
     os.makedirs(os.path.join(this_dir, dir_name))
     file_content = textwrap.dedent(f'''\
 #!/usr/bin/env python3
 
-# {problem_title_titled}
+# {question.title}
 #
-# {problem_url}
+# {question.url}
 #
-# {"\n# ".join(problem_description_lines)}
+# {"\n# ".join(wrapped_description_lines)}
 
 
 def test():
@@ -139,7 +150,7 @@ def test():
     """
 
     def test_algo(algo):
-        assert 1 == 1
+        {"\n".join(example_tests_lines) if example_tests_lines is not None else "assert 1 == 1"}
 
     # Test all different algorithms/implementations
     solution = Solution()
@@ -148,7 +159,7 @@ def test():
 
 
 class Solution:
-    def brute_force(self):
+    def brute_force(self{f", {question.code_template}" if question.code_template else ""}):
         """
         Approach:  Brute-force.
         Idea:      ?
@@ -162,4 +173,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    create_leetcode_problem()
+    question = read_question()
+    setup_question(question)

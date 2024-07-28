@@ -5,16 +5,13 @@ import itertools
 import re
 from dataclasses import dataclass
 import pprint
-from typing import Dict, List, Literal
+from typing import List, Optional
 import requests
 from bs4 import BeautifulSoup
 
 
 # Leetcode's graphql api endpoint.
 BASE_URL = "https://leetcode.com/graphql"
-
-
-Difficulty = Literal["Easy", "Medium", "Hard"]
 
 
 @dataclass
@@ -38,18 +35,23 @@ class Question:
     title: str
     title_slug: str
     description_lines: List[str]
-    difficulty: Difficulty
-    code_template: CodeTemplate
-    example_tests: List[ExampleTest]
+    difficulty: str
+    code_template: Optional[CodeTemplate]
+    example_tests: Optional[List[ExampleTest]]
 
 
-def get_question(leetcode_problem_url: str):
+def format_problem_url(problem_url: str):
     # Only keep `https://leetcode.com/problems/<title-slug>`, and remove anything after.
-    if (m := re.search(r"^(https://leetcode.com/problems/([^/]+))", leetcode_problem_url)):
+    if (m := re.search(r"^(https://leetcode.com/problems/([^/]+))", problem_url)):
         url = m.group(1)
         title_slug = m.group(2)
+        return (url, title_slug)
     else:
         raise Exception("failed to parse leetcode problem url")
+
+
+def get_question(problem_url: str):
+    (url, title_slug) = format_problem_url(problem_url)
 
     graphql_query = {
         "query":
