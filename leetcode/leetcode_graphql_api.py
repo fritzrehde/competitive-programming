@@ -103,7 +103,6 @@ def parse_description_lines(content_lines: List[str]) -> List[str]:
 def parse_code_template(question_data) -> CodeTemplate:
     code = next(code_snippet["code"] for code_snippet in question_data["codeSnippets"] if code_snippet["lang"] == "Python3")
     fn_definition = code.splitlines()[1]
-    print(fn_definition)
     if (m := re.search(r'^\s*def [^(]+\(self, ([^)]+)\) -> ([^:]+):', fn_definition)):
         args = m.group(1)
         return_type = m.group(2)
@@ -120,11 +119,3 @@ def parse_example_tests(content_lines: List[str]) -> List[ExampleTest]:
     outputs = [m.group(1) for line in content_lines if (m := output_regex.search(line))]
 
     return [ExampleTest(input, output) for (input, output) in zip(inputs, outputs)]
-
-
-def main():
-    pprint.pprint(get_question(sys.argv[1]))
-
-
-if __name__ == "__main__":
-    main()

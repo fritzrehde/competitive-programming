@@ -150,7 +150,7 @@ def test():
     """
 
     def test_algo(algo):
-        {"\n".join(example_tests_lines) if example_tests_lines is not None else "assert 1 == 1"}
+        {"\n        ".join(example_tests_lines) if example_tests_lines is not None else "assert 1 == 1"}
 
     # Test all different algorithms/implementations
     solution = Solution()
@@ -159,7 +159,7 @@ def test():
 
 
 class Solution:
-    def brute_force(self{f", {question.code_template}" if question.code_template else ""}):
+    def brute_force{f"(self, {question.code_template.args}) -> {question.code_template.return_type}" if question.code_template else "(self)"}:
         """
         Approach:  Brute-force.
         Idea:      ?
