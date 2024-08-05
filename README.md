@@ -60,6 +60,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 1518 | Easy | [Water Bottles](https://leetcode.com/problems/water-bottles/) | [Python](./leetcode/1518-water-bottles/water_bottles.py) |
 | 1636 | Easy | [Sort Array By Increasing Frequency](https://leetcode.com/problems/sort-array-by-increasing-frequency/) | [Python](./leetcode/1636-sort-array-by-increasing-frequency/sort_array_by_increasing_frequency.py) |
 | 1717 | Medium | [Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings/) | [Python](./leetcode/1717-maximum-score-from-removing-substrings/maximum_score_from_removing_substrings.py) |
+| 1768 | Easy | [Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately) | [Python](./leetcode/1768-merge-strings-alternately/merge_strings_alternately.py) |
 | 2037 | Easy | [Minimum Number Of Moves To Seat Everyone](https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/) | [Python](./leetcode/2037-minimum-number-of-moves-to-seat-everyone/minimum_number_of_moves_to_seat_everyone.py) |
 | 2085 | Easy | [Count Common Words With One Occurrence](https://leetcode.com/problems/count-common-words-with-one-occurrence/) | [Python](./leetcode/2085-count-common-words-with-one-occurrence/count_common_words_with_one_occurrence.py) |
 
