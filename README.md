@@ -53,6 +53,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 701 | Medium | [Insert Into A Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/) | [Python](./leetcode/0701-insert-into-a-binary-search-tree/insert_into_a_binary_search_tree.py) |
 | 735 | Medium | [Asteroid Collision](https://leetcode.com/problems/asteroid-collision/) | [Python](./leetcode/0735-asteroid-collision/asteroid_collision.py) |
 | 743 | Medium | [Network Delay Time](https://leetcode.com/problems/network-delay-time/) | [Python](./leetcode/0743-network-delay-time/network_delay_time.py) |
+| 771 | Easy | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | [Python](./leetcode/0771-jewels-and-stones/jewels_and_stones.py) |
 | 945 | Medium | [Minimum Increment To Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/) | [Python](./leetcode/0945-minimum-increment-to-make-array-unique/minimum_increment_to_make_array_unique.py) |
 | 1052 | Medium | [Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/) | [Python](./leetcode/1052-grumpy-bookstore-owner/grumpy_bookstore_owner.py) |
 | 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
