@@ -59,6 +59,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 945 | Medium | [Minimum Increment To Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/) | [Python](./leetcode/0945-minimum-increment-to-make-array-unique/minimum_increment_to_make_array_unique.py) |
 | 1052 | Medium | [Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/) | [Python](./leetcode/1052-grumpy-bookstore-owner/grumpy_bookstore_owner.py) |
 | 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
+| 1431 | Easy | [Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies) | [Python](./leetcode/1431-kids-with-the-greatest-number-of-candies/kids_with_the_greatest_number_of_candies.py) |
 | 1443 | Medium | [Minimum Time To Collect All Apples In A Tree](https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/) | [Python](./leetcode/1443-minimum-time-to-collect-all-apples-in-a-tree/minimum_time_to_collect_all_apples_in_a_tree.py) |
 | 1518 | Easy | [Water Bottles](https://leetcode.com/problems/water-bottles/) | [Python](./leetcode/1518-water-bottles/water_bottles.py) |
 | 1636 | Easy | [Sort Array By Increasing Frequency](https://leetcode.com/problems/sort-array-by-increasing-frequency/) | [Python](./leetcode/1636-sort-array-by-increasing-frequency/sort_array_by_increasing_frequency.py) |
