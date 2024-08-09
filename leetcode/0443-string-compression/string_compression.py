@@ -60,6 +60,7 @@ def test():
         solution.out_of_place,
         solution.in_place,
         solution.in_place_optimized,
+        solution.group_by,
     ]:
         test_algo(algo)
 
@@ -199,4 +200,31 @@ class Solution:
             )
 
         finalize_compression()
+        return len(chars)
+
+    def group_by(self, chars: List[str]) -> int:
+        """
+        Approach:  Use itertools group_by.
+        Idea:      Collect the compressed data into a new array, and replace input array with compressed array.
+        Time:      O(n): Iterate of each of the input chars, and add to compressed array (O(1)).
+        Space:     O(n): The out-of-place compressed array has at most length n.
+        Leetcode:  74 ms runtime, 21.19 MB memory
+        """
+
+        import itertools
+        from more_itertools import ilen
+
+        def digits(num: int) -> Iterator[str]:
+            return iter(str(num))
+
+        def compressed():
+            same_element = lambda x: x
+            for char, group in itertools.groupby(chars, key=same_element):
+                char_count = ilen(group)
+                yield char
+                if char_count > 1:
+                    for digit in digits(char_count):
+                        yield digit
+
+        chars[:] = list(compressed())
         return len(chars)
