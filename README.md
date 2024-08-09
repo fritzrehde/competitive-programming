@@ -68,6 +68,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 1768 | Easy | [Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately) | [Python](./leetcode/1768-merge-strings-alternately/merge_strings_alternately.py) |
 | 2037 | Easy | [Minimum Number Of Moves To Seat Everyone](https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/) | [Python](./leetcode/2037-minimum-number-of-moves-to-seat-everyone/minimum_number_of_moves_to_seat_everyone.py) |
 | 2085 | Easy | [Count Common Words With One Occurrence](https://leetcode.com/problems/count-common-words-with-one-occurrence/) | [Python](./leetcode/2085-count-common-words-with-one-occurrence/count_common_words_with_one_occurrence.py) |
+| 3163 | Medium | [String Compression III](https://leetcode.com/problems/string-compression-iii) | [Python](./leetcode/3163-string-compression-iii/string_compression_iii.py) |
 
 
 ## [Hackerrank](https://www.hackerrank.com)
