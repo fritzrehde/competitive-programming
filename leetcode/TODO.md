@@ -2,3 +2,4 @@
 
 - [ ] N-Queens
 - [ ] Rotate Image
+- [ ] Rank Teams by Votes
