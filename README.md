@@ -60,6 +60,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 945 | Medium | [Minimum Increment To Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/) | [Python](./leetcode/0945-minimum-increment-to-make-array-unique/minimum_increment_to_make_array_unique.py) |
 | 1052 | Medium | [Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/) | [Python](./leetcode/1052-grumpy-bookstore-owner/grumpy_bookstore_owner.py) |
 | 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
+| 1143 | Medium | [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence) | [Python](./leetcode/1143-longest-common-subsequence/longest_common_subsequence.py) |
 | 1207 | Easy | [Unique Number of Occurrences](https://leetcode.com/problems/unique-number-of-occurrences) | [Python](./leetcode/1207-unique-number-of-occurrences/unique_number_of_occurrences.py) |
 | 1431 | Easy | [Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies) | [Python](./leetcode/1431-kids-with-the-greatest-number-of-candies/kids_with_the_greatest_number_of_candies.py) |
 | 1443 | Medium | [Minimum Time To Collect All Apples In A Tree](https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/) | [Python](./leetcode/1443-minimum-time-to-collect-all-apples-in-a-tree/minimum_time_to_collect_all_apples_in_a_tree.py) |
