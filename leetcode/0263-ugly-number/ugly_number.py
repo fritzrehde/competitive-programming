@@ -200,7 +200,7 @@ class Solution:
 
     def math(self, n: int) -> int:
         """
-        Approach:  Optimize through early exit.
+        Approach:  Math.
         Idea:      A number n is ugly if n = (2^a)(3^b)(5^c).
         Time:      O(log n): n/((2^a)(3^b)(5^c)) can be calculated by dividing by [2, 3, 5] as long as possible, and then check if equal to 1. O(log n) because we are decreasing search space by factor of [2, 3, 5] every iteration.
         Space:     O(1): No additional memory is used.
