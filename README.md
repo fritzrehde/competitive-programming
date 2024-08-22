@@ -62,6 +62,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 771 | Easy | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | [Python](./leetcode/0771-jewels-and-stones/jewels_and_stones.py) |
 | 945 | Medium | [Minimum Increment To Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/) | [Python](./leetcode/0945-minimum-increment-to-make-array-unique/minimum_increment_to_make_array_unique.py) |
 | 1052 | Medium | [Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/) | [Python](./leetcode/1052-grumpy-bookstore-owner/grumpy_bookstore_owner.py) |
+| 1106 | Hard | [Parsing A Boolean Expression](https://leetcode.com/problems/parsing-a-boolean-expression) | [Python](./leetcode/1106-parsing-a-boolean-expression/parsing_a_boolean_expression.py) |
 | 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
 | 1143 | Medium | [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence) | [Python](./leetcode/1143-longest-common-subsequence/longest_common_subsequence.py) |
 | 1207 | Easy | [Unique Number of Occurrences](https://leetcode.com/problems/unique-number-of-occurrences) | [Python](./leetcode/1207-unique-number-of-occurrences/unique_number_of_occurrences.py) |
