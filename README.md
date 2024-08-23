@@ -49,6 +49,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 210 | Medium | [Course Schedule Ii](https://leetcode.com/problems/course-schedule-ii/) | [Python](./leetcode/0210-course-schedule-ii/course_schedule_ii.py) |
 | 263 | Easy | [Ugly Number](https://leetcode.com/problems/ugly-number) | [Python](./leetcode/0263-ugly-number/ugly_number.py) |
 | 264 | Medium | [Ugly Number II](https://leetcode.com/problems/ugly-number-ii) | [Python](./leetcode/0264-ugly-number-ii/ugly_number_ii.py) |
+| 268 | Easy | [Missing Number](https://leetcode.com/problems/missing-number) | [Python](./leetcode/0268-missing-number/missing_number.py) |
 | 271 | Medium | [Encode And Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) | [Python](./leetcode/0271-encode-and-decode-strings/encode_and_decode_strings.py) |
 | 292 | Easy | [Nim Game](https://leetcode.com/problems/nim-game/) | [Python](./leetcode/0292-nim-game/nim_game.py) |
 | 345 | Easy | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string) | [Python](./leetcode/0345-reverse-vowels-of-a-string/reverse_vowels_of_a_string.py) |
