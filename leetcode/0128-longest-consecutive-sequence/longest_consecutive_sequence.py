@@ -32,6 +32,8 @@ def test():
         solution.brute_force_chunkby,
         solution.hashset,
         solution.hashset_optimized,
+        solution.union_find,
+        solution.union_find_path_compression,
     ]:
         test_algo(algo)
 
@@ -202,3 +204,122 @@ class Solution:
                     yield len_of_sequence_starting_at(x)
 
         return max(all_sequences(), default=0)
+
+    def union_find(self, nums: List[int]) -> int:
+        """
+        Approach:  Union find.
+        Idea:      We can model each sequence as a disjoint set containing the elements of the sequence. Then, we can grow sequences by extending them with left and right elements.
+        Time:      O(n log n): uf.find takes O(log n) to find its root traversing its parents, recursively, and, therefore, uf.union also takes O(log n).
+        Space:     O(n): Every (unique) element (besides duplicates) will be stored (copied) in one of the sequences.
+        Leetcode:  523 ms runtime, 51.36 MB memory
+        """
+
+        from dataclasses import dataclass
+
+        @dataclass
+        class UF:
+            parent: Dict[int, int]
+            size: Dict[int, int]
+
+            def __init__(self, values):
+                self.parent = dict()
+                self.size = dict()
+                for value in values:
+                    self.parent[value] = value
+                    self.size[value] = 1
+
+            def union(self, a, b):
+                root_a = self.find(a)
+                root_b = self.find(b)
+                if root_a != root_b:
+                    # NOTE: `parent[root_b] = root_a` works as well.
+                    self.parent[root_a] = root_b
+                    self.size[root_b] += self.size[root_a]
+
+            def find(self, a):
+                if self.parent[a] == a:
+                    return a
+                else:
+                    return self.find(self.parent[a])
+
+            def get_largest_size(self):
+                return max(self.size.values(), default=0)
+
+        # Remove duplicates, as those shouldn't be part of a sequence, but
+        # should also not form a new sequence.
+        nums = set(nums)
+
+        uf = UF(nums)
+        for x in nums:
+            # Extend x's sequence with predecessor.
+            if x - 1 in nums:
+                uf.union(x, x - 1)
+
+            # NOTE: Might not even need this, as this case will be handled in a
+            # later iteration as well.
+            # Extend x's sequence with successor.
+            if x + 1 in nums:
+                uf.union(x, x + 1)
+
+        return uf.get_largest_size()
+
+    def union_find_path_compression(self, nums: List[int]) -> int:
+        """
+        Approach:  Union find, with path compression optimization.
+        Idea:      We can model each sequence as a disjoint set containing the elements of the sequence. Then, we can grow sequences by extending them with left and right elements.
+        Time:      O(n): With path compression, we are always setting the parent of each node to be its root, so both uf.find and uf.union are amortized O(1).
+        Space:     O(n): Every (unique) element (besides duplicates) will be stored (copied) in one of the sequences.
+        Leetcode:  537 ms runtime, 51.42 MB memory
+        """
+
+        from dataclasses import dataclass
+
+        @dataclass
+        class UF:
+            parent: Dict[int, int]
+            size: Dict[int, int]
+
+            def __init__(self, values):
+                self.parent = dict()
+                self.size = dict()
+                for value in values:
+                    self.parent[value] = value
+                    self.size[value] = 1
+
+            def union(self, a, b):
+                root_a = self.find(a)
+                root_b = self.find(b)
+                if root_a != root_b:
+                    # NOTE: `parent[root_b] = root_a` works as well.
+                    self.parent[root_a] = root_b
+                    self.size[root_b] += self.size[root_a]
+
+            def find(self, a):
+                # Find the root, but also set the parent of all nodes to that
+                # root, to speed up future find calls.
+                if self.parent[a] == a:
+                    return a
+                else:
+                    self.parent[a] = self.find(self.parent[a])
+                    return self.parent[a]
+
+            def get_largest_size(self):
+                return max(self.size.values(), default=0)
+
+        # Remove duplicates, as those shouldn't be part of a sequence, but
+        # should also not form a new sequence.
+        nums = set(nums)
+
+        uf = UF(nums)
+        for x in nums:
+            # Extend x's sequence with predecessor.
+            if x - 1 in nums:
+                uf.union(x, x - 1)
+
+            # NOTE: Might not even need this, as this case will be handled in a
+            # later iteration as well.
+            # Extend x's sequence with successor.
+            if x + 1 in nums:
+                uf.union(x, x + 1)
+
+        return uf.get_largest_size()
