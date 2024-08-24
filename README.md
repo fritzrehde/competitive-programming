@@ -45,6 +45,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 145 | Easy | [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) | [Python](./leetcode/0145-binary-tree-postorder-traversal/binary_tree_postorder_traversal.py) |
 | 167 | Medium | [Two Sum Ii - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [Python](./leetcode/0167-two-sum-ii-input-array-is-sorted/two_sum_ii_input_array_is_sorted.py) |
 | 179 | Medium | [Largest Number](https://leetcode.com/problems/largest-number/) | [Python](./leetcode/0179-largest-number/largest_number.py) |
+| 206 | Easy | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list) | [Python](./leetcode/0206-reverse-linked-list/reverse_linked_list.py) |
 | 207 | Medium | [Course Schedule](https://leetcode.com/problems/course-schedule/) | [Python](./leetcode/0207-course-schedule/course_schedule.py) |
 | 210 | Medium | [Course Schedule Ii](https://leetcode.com/problems/course-schedule-ii/) | [Python](./leetcode/0210-course-schedule-ii/course_schedule_ii.py) |
 | 263 | Easy | [Ugly Number](https://leetcode.com/problems/ugly-number) | [Python](./leetcode/0263-ugly-number/ugly_number.py) |
