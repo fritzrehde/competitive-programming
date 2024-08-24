@@ -106,15 +106,16 @@ def parse_code_template(question_data) -> CodeTemplate:
         if code_snippet["lang"] == "Python3"
     )
 
+    # Remove python multi-line comments.
+    code = re.sub(r'""".*"""', "", code)
+
+    # Remove python single-line comments.
     def is_not_comment(line: str) -> bool:
         return not line.startswith("#")
 
-    code_lines = list(filter(is_not_comment, code.splitlines()))
+    code = "\n".join(list(filter(is_not_comment, code.splitlines())))
 
-    fn_definition = code_lines[1]
-    if m := re.search(
-        r"^\s*def [^(]+\(self, ([^)]+)\) -> ([^:]+):", fn_definition
-    ):
+    if m := re.search(r"\bdef [^(]+\(self, ([^)]+)\) -> ([^:]+):", code):
         args = m.group(1)
         return_type = m.group(2)
         return CodeTemplate(args, return_type)
