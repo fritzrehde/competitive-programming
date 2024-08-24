@@ -42,7 +42,7 @@ class Question:
 
 def format_problem_url(problem_url: str):
     # Only keep `https://leetcode.com/problems/<title-slug>`, and remove anything after.
-    if (m := re.search(r"^(https://leetcode.com/problems/([^/]+))", problem_url)):
+    if m := re.search(r"^(https://leetcode.com/problems/([^/]+))", problem_url):
         url = m.group(1)
         title_slug = m.group(2)
         return (url, title_slug)
@@ -54,8 +54,7 @@ def get_question(problem_url: str):
     (url, title_slug) = format_problem_url(problem_url)
 
     graphql_query = {
-        "query":
-            """query questionHints($titleSlug: String!) {
+        "query": """query questionHints($titleSlug: String!) {
                 question(titleSlug: $titleSlug) {
                     questionFrontendId
                     title
@@ -81,7 +80,7 @@ def get_question(problem_url: str):
 
     content = question_data["content"]
     soup = BeautifulSoup(content, "lxml")
-    content_text = soup.text.replace('\xa0', ' ')
+    content_text = soup.text.replace("\xa0", " ")
     content_lines = content_text.splitlines()
 
     return Question(
@@ -101,9 +100,21 @@ def parse_description_lines(content_lines: List[str]) -> List[str]:
 
 
 def parse_code_template(question_data) -> CodeTemplate:
-    code = next(code_snippet["code"] for code_snippet in question_data["codeSnippets"] if code_snippet["lang"] == "Python3")
-    fn_definition = code.splitlines()[1]
-    if (m := re.search(r'^\s*def [^(]+\(self, ([^)]+)\) -> ([^:]+):', fn_definition)):
+    code: str = next(
+        code_snippet["code"]
+        for code_snippet in question_data["codeSnippets"]
+        if code_snippet["lang"] == "Python3"
+    )
+
+    def is_not_comment(line: str) -> bool:
+        return not line.startswith("#")
+
+    code_lines = list(filter(is_not_comment, code.splitlines()))
+
+    fn_definition = code_lines[1]
+    if m := re.search(
+        r"^\s*def [^(]+\(self, ([^)]+)\) -> ([^:]+):", fn_definition
+    ):
         args = m.group(1)
         return_type = m.group(2)
         return CodeTemplate(args, return_type)
@@ -112,10 +123,16 @@ def parse_code_template(question_data) -> CodeTemplate:
 
 
 def parse_example_tests(content_lines: List[str]) -> List[ExampleTest]:
-    input_regex = re.compile(r'^Input: (.+)$')
-    inputs = [m.group(1) for line in content_lines if (m := input_regex.search(line))]
+    input_regex = re.compile(r"^Input: (.+)$")
+    inputs = [
+        m.group(1) for line in content_lines if (m := input_regex.search(line))
+    ]
 
-    output_regex = re.compile(r'^Output: (.+)$')
-    outputs = [m.group(1) for line in content_lines if (m := output_regex.search(line))]
+    output_regex = re.compile(r"^Output: (.+)$")
+    outputs = [
+        m.group(1) for line in content_lines if (m := output_regex.search(line))
+    ]
 
-    return [ExampleTest(input, output) for (input, output) in zip(inputs, outputs)]
+    return [
+        ExampleTest(input, output) for (input, output) in zip(inputs, outputs)
+    ]

@@ -4,6 +4,7 @@
 
 import os
 import re
+import sys
 import textwrap
 import tempfile
 import subprocess
@@ -38,8 +39,8 @@ def read_question() -> leetcode.Question:
     # Try calling leetcode's API to extract infos, otherwise input manually.
     try:
         return leetcode.get_question(problem_url)
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"Failed to fetch question from leetcode API: {e}", file=sys.stderr)
 
     id = int(input("Enter the problem identifier: "))
     title = input("Enter the problem title: ").title()
