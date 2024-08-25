@@ -34,6 +34,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 28 | Easy | [Find The Index Of The First Occurrence In A String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) | [Python](./leetcode/0028-find-the-index-of-the-first-occurrence-in-a-string/find_the_index_of_the_first_occurrence_in_a_string.py) |
 | 42 | Hard | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water) | [Python](./leetcode/0042-trapping-rain-water/trapping_rain_water.py) |
 | 45 | Medium | [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | [Python](./leetcode/0045-jump-game-ii/jump_game_ii.py) |
+| 49 | Medium | [Group Anagrams](https://leetcode.com/problems/group-anagrams) | [Python](./leetcode/0049-group-anagrams/group_anagrams.py) |
 | 50 | Medium | [Pow(X, N)](https://leetcode.com/problems/powx-n/) | [Python](./leetcode/0050-powx-n/powx_n.py) |
 | 51 | Hard | [N-Queens](https://leetcode.com/problems/n-queens/) | [Python](./leetcode/0051-n-queens/n_queens.py) |
 | 53 | Medium | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [Python](./leetcode/0053-maximum-subarray/maximum_subarray.py) |
