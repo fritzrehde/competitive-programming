@@ -38,6 +38,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 50 | Medium | [Pow(X, N)](https://leetcode.com/problems/powx-n/) | [Python](./leetcode/0050-powx-n/powx_n.py) |
 | 51 | Hard | [N-Queens](https://leetcode.com/problems/n-queens/) | [Python](./leetcode/0051-n-queens/n_queens.py) |
 | 53 | Medium | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [Python](./leetcode/0053-maximum-subarray/maximum_subarray.py) |
+| 54 | Medium | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix) | [Python](./leetcode/0054-spiral-matrix/spiral_matrix.py) |
 | 55 | Medium | [Jump Game](https://leetcode.com/problems/jump-game) | [Python](./leetcode/0055-jump-game/jump_game.py) |
 | 70 | Easy | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [Python](./leetcode/0070-climbing-stairs/climbing_stairs.py) |
 | 94 | Easy | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | [Python](./leetcode/0094-binary-tree-inorder-traversal/binary_tree_inorder_traversal.py) |
