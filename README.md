@@ -47,6 +47,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 133 | Medium | [Clone Graph](https://leetcode.com/problems/clone-graph) | [Python](./leetcode/0133-clone-graph/clone_graph.py) |
 | 144 | Easy | [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | [Python](./leetcode/0144-binary-tree-preorder-traversal/binary_tree_preorder_traversal.py) |
 | 145 | Easy | [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) | [Python](./leetcode/0145-binary-tree-postorder-traversal/binary_tree_postorder_traversal.py) |
+| 152 | Medium | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray) | [Python](./leetcode/0152-maximum-product-subarray/maximum_product_subarray.py) |
 | 153 | Medium | [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array) | [Python](./leetcode/0153-find-minimum-in-rotated-sorted-array/find_minimum_in_rotated_sorted_array.py) |
 | 167 | Medium | [Two Sum Ii - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [Python](./leetcode/0167-two-sum-ii-input-array-is-sorted/two_sum_ii_input_array_is_sorted.py) |
 | 179 | Medium | [Largest Number](https://leetcode.com/problems/largest-number/) | [Python](./leetcode/0179-largest-number/largest_number.py) |
