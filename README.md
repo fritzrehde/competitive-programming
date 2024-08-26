@@ -42,6 +42,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 55 | Medium | [Jump Game](https://leetcode.com/problems/jump-game) | [Python](./leetcode/0055-jump-game/jump_game.py) |
 | 70 | Easy | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [Python](./leetcode/0070-climbing-stairs/climbing_stairs.py) |
 | 94 | Easy | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | [Python](./leetcode/0094-binary-tree-inorder-traversal/binary_tree_inorder_traversal.py) |
+| 100 | Easy | [Same Tree](https://leetcode.com/problems/same-tree) | [Python](./leetcode/0100-same-tree/same_tree.py) |
 | 121 | Easy | [Best Time To Buy And Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Python](./leetcode/0121-best-time-to-buy-and-sell-stock/best_time_to_buy_and_sell_stock.py) |
 | 125 | Easy | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [Python](./leetcode/0125-valid-palindrome/valid_palindrome.py) |
 | 128 | Medium | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence) | [Python](./leetcode/0128-longest-consecutive-sequence/longest_consecutive_sequence.py) |
