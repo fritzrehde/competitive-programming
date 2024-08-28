@@ -65,6 +65,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 292 | Easy | [Nim Game](https://leetcode.com/problems/nim-game/) | [Python](./leetcode/0292-nim-game/nim_game.py) |
 | 300 | Medium | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) | [Python](./leetcode/0300-longest-increasing-subsequence/longest_increasing_subsequence.py) |
 | 345 | Easy | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string) | [Python](./leetcode/0345-reverse-vowels-of-a-string/reverse_vowels_of_a_string.py) |
+| 370 | Medium | [Range Addition](https://leetcode.com/problems/range-addition) | [Python](./leetcode/0370-range-addition/range_addition.py) |
 | 443 | Medium | [String Compression](https://leetcode.com/problems/string-compression) | [Python](./leetcode/0443-string-compression/string_compression.py) |
 | 450 | Medium | [Delete Node In A Bst](https://leetcode.com/problems/delete-node-in-a-bst/) | [Python](./leetcode/0450-delete-node-in-a-bst/delete_node_in_a_bst.py) |
 | 476 | Easy | [Number Complement](https://leetcode.com/problems/number-complement) | [Python](./leetcode/0476-number-complement/number_complement.py) |
