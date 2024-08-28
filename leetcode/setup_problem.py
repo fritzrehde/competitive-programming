@@ -132,6 +132,8 @@ def setup_question(question: leetcode.Question):
 
     if question.example_tests is not None:
         example_tests_lines = [f"assert algo({example_test.input_args}) == {example_test.expected_output_val}" for example_test in question.example_tests]
+    else:
+        example_tests_lines = None
 
     # Create problem directory and file.
     os.makedirs(os.path.join(this_dir, dir_name))
