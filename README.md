@@ -70,6 +70,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 450 | Medium | [Delete Node In A Bst](https://leetcode.com/problems/delete-node-in-a-bst/) | [Python](./leetcode/0450-delete-node-in-a-bst/delete_node_in_a_bst.py) |
 | 476 | Easy | [Number Complement](https://leetcode.com/problems/number-complement) | [Python](./leetcode/0476-number-complement/number_complement.py) |
 | 485 | Easy | [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones) | [Python](./leetcode/0485-max-consecutive-ones/max_consecutive_ones.py) |
+| 487 | Medium | [Max Consecutive Ones Ii](https://leetcode.com/problems/max-consecutive-ones-ii) | [Python](./leetcode/0487-max-consecutive-ones-ii/max_consecutive_ones_ii.py) |
 | 572 | Easy | [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree) | [Python](./leetcode/0572-subtree-of-another-tree/subtree_of_another_tree.py) |
 | 633 | Medium | [Sum Of Square Numbers](https://leetcode.com/problems/sum-of-square-numbers/) | [Python](./leetcode/0633-sum-of-square-numbers/sum_of_square_numbers.py) |
 | 692 | Medium | [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) | [Python](./leetcode/0692-top-k-frequent-words/top_k_frequent_words.py) |
