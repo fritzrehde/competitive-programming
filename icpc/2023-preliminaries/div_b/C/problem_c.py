@@ -5,10 +5,6 @@
 # https://sppcontests.org/problem_pdfs/2023/prelimsB.pdf
 
 
-import pprint
-from typing import Iterable, List
-
-
 def test():
     """
     Run `pytest <this-file>`.
