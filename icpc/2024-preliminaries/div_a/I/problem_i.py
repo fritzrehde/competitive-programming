@@ -54,7 +54,7 @@ def test():
 class Solution:
     def brute_force(self, input=str) -> str:
         """
-        Approach:  Longest palindrome.
+        Approach:  Brute force.
         Idea:      Find the longest substring that includes the last character that is a palindrome with length m. Then, we would need to add n-m characters to the back.
         Time:      O(n^2): For each position of the n positions (i) in word, check if word[i:] is a palindrome (O(n) each).
         Space:     O(n^2): Each time we check if a subarray is a palindrome (at most n times), we allocate the reversed string slice.
