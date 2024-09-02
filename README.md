@@ -48,6 +48,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 125 | Easy | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [Python](./leetcode/0125-valid-palindrome/valid_palindrome.py) |
 | 128 | Medium | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence) | [Python](./leetcode/0128-longest-consecutive-sequence/longest_consecutive_sequence.py) |
 | 133 | Medium | [Clone Graph](https://leetcode.com/problems/clone-graph) | [Python](./leetcode/0133-clone-graph/clone_graph.py) |
+| 136 | Easy | [Single Number](https://leetcode.com/problems/single-number) | [Python](./leetcode/0136-single-number/single_number.py) |
 | 144 | Easy | [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) | [Python](./leetcode/0144-binary-tree-preorder-traversal/binary_tree_preorder_traversal.py) |
 | 145 | Easy | [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) | [Python](./leetcode/0145-binary-tree-postorder-traversal/binary_tree_postorder_traversal.py) |
 | 152 | Medium | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray) | [Python](./leetcode/0152-maximum-product-subarray/maximum_product_subarray.py) |
