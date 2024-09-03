@@ -81,6 +81,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 692 | Medium | [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) | [Python](./leetcode/0692-top-k-frequent-words/top_k_frequent_words.py) |
 | 701 | Medium | [Insert Into A Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/) | [Python](./leetcode/0701-insert-into-a-binary-search-tree/insert_into_a_binary_search_tree.py) |
 | 735 | Medium | [Asteroid Collision](https://leetcode.com/problems/asteroid-collision/) | [Python](./leetcode/0735-asteroid-collision/asteroid_collision.py) |
+| 739 | Medium | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures) | [Python](./leetcode/0739-daily-temperatures/daily_temperatures.py) |
 | 743 | Medium | [Network Delay Time](https://leetcode.com/problems/network-delay-time/) | [Python](./leetcode/0743-network-delay-time/network_delay_time.py) |
 | 771 | Easy | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | [Python](./leetcode/0771-jewels-and-stones/jewels_and_stones.py) |
 | 945 | Medium | [Minimum Increment To Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/) | [Python](./leetcode/0945-minimum-increment-to-make-array-unique/minimum_increment_to_make_array_unique.py) |
