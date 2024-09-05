@@ -91,7 +91,7 @@ def get_question(problem_url: str):
         description_lines=parse_description_lines(content_lines),
         difficulty=question_data["difficulty"],
         code_template=parse_code_template(question_data),
-        example_tests=parse_example_tests(content_lines),
+        example_tests=parse_example_tests(content_text),
     )
 
 
@@ -123,17 +123,10 @@ def parse_code_template(question_data) -> CodeTemplate:
         raise Exception(f"invalid code template format received: {code}")
 
 
-def parse_example_tests(content_lines: List[str]) -> List[ExampleTest]:
-    input_regex = re.compile(r"^Input: (.+)$")
-    inputs = [
-        m.group(1) for line in content_lines if (m := input_regex.search(line))
-    ]
-
-    output_regex = re.compile(r"^Output: (.+)$")
-    outputs = [
-        m.group(1) for line in content_lines if (m := output_regex.search(line))
-    ]
-
+def parse_example_tests(content_text: str) -> List[ExampleTest]:
     return [
-        ExampleTest(input, output) for (input, output) in zip(inputs, outputs)
+        ExampleTest(input_args=m.group(1), expected_output_val=m.group(2))
+        for m in re.finditer(
+            r"Input: (.+?)\nOutput: (.+?)\n", content_text, re.DOTALL
+        )
     ]
