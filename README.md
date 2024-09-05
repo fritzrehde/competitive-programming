@@ -32,6 +32,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 20 | Easy | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | [Python](./leetcode/0020-valid-parentheses/valid_parentheses.py) |
 | 21 | Easy | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | [Python](./leetcode/0021-merge-two-sorted-lists/merge_two_sorted_lists.py) |
 | 22 | Medium | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | [Python](./leetcode/0022-generate-parentheses/generate_parentheses.py) |
+| 26 | Easy | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array) | [Python](./leetcode/0026-remove-duplicates-from-sorted-array/remove_duplicates_from_sorted_array.py) |
 | 28 | Easy | [Find The Index Of The First Occurrence In A String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) | [Python](./leetcode/0028-find-the-index-of-the-first-occurrence-in-a-string/find_the_index_of_the_first_occurrence_in_a_string.py) |
 | 36 | Medium | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku) | [Python](./leetcode/0036-valid-sudoku/valid_sudoku.py) |
 | 42 | Hard | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water) | [Python](./leetcode/0042-trapping-rain-water/trapping_rain_water.py) |
