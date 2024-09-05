@@ -87,6 +87,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 739 | Medium | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures) | [Python](./leetcode/0739-daily-temperatures/daily_temperatures.py) |
 | 743 | Medium | [Network Delay Time](https://leetcode.com/problems/network-delay-time/) | [Python](./leetcode/0743-network-delay-time/network_delay_time.py) |
 | 771 | Easy | [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) | [Python](./leetcode/0771-jewels-and-stones/jewels_and_stones.py) |
+| 874 | Medium | [Walking Robot Simulation](https://leetcode.com/problems/walking-robot-simulation) | [Python](./leetcode/0874-walking-robot-simulation/walking_robot_simulation.py) |
 | 945 | Medium | [Minimum Increment To Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/) | [Python](./leetcode/0945-minimum-increment-to-make-array-unique/minimum_increment_to_make_array_unique.py) |
 | 1052 | Medium | [Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/) | [Python](./leetcode/1052-grumpy-bookstore-owner/grumpy_bookstore_owner.py) |
 | 1106 | Hard | [Parsing A Boolean Expression](https://leetcode.com/problems/parsing-a-boolean-expression) | [Python](./leetcode/1106-parsing-a-boolean-expression/parsing_a_boolean_expression.py) |
