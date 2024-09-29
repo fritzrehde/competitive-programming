@@ -61,6 +61,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 206 | Easy | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list) | [Python](./leetcode/0206-reverse-linked-list/reverse_linked_list.py) |
 | 207 | Medium | [Course Schedule](https://leetcode.com/problems/course-schedule/) | [Python](./leetcode/0207-course-schedule/course_schedule.py) |
 | 210 | Medium | [Course Schedule Ii](https://leetcode.com/problems/course-schedule-ii/) | [Python](./leetcode/0210-course-schedule-ii/course_schedule_ii.py) |
+| 217 | Easy | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate) | [Python](./leetcode/0217-contains-duplicate/contains_duplicate.py) |
 | 238 | Medium | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self) | [Python](./leetcode/0238-product-of-array-except-self/product_of_array_except_self.py) |
 | 242 | Easy | [Valid Anagram](https://leetcode.com/problems/valid-anagram) | [Python](./leetcode/0242-valid-anagram/valid_anagram.py) |
 | 263 | Easy | [Ugly Number](https://leetcode.com/problems/ugly-number) | [Python](./leetcode/0263-ugly-number/ugly_number.py) |
