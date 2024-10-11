@@ -86,6 +86,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 633 | Medium | [Sum Of Square Numbers](https://leetcode.com/problems/sum-of-square-numbers/) | [Python](./leetcode/0633-sum-of-square-numbers/sum_of_square_numbers.py) |
 | 692 | Medium | [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) | [Python](./leetcode/0692-top-k-frequent-words/top_k_frequent_words.py) |
 | 701 | Medium | [Insert Into A Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/) | [Python](./leetcode/0701-insert-into-a-binary-search-tree/insert_into_a_binary_search_tree.py) |
+| 706 | Easy | [Design HashMap](https://leetcode.com/problems/design-hashmap) | [Python](./leetcode/0706-design-hashmap/design_hashmap.py) |
 | 735 | Medium | [Asteroid Collision](https://leetcode.com/problems/asteroid-collision/) | [Python](./leetcode/0735-asteroid-collision/asteroid_collision.py) |
 | 739 | Medium | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures) | [Python](./leetcode/0739-daily-temperatures/daily_temperatures.py) |
 | 743 | Medium | [Network Delay Time](https://leetcode.com/problems/network-delay-time/) | [Python](./leetcode/0743-network-delay-time/network_delay_time.py) |
