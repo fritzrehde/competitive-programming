@@ -110,6 +110,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 2028 | Medium | [Find Missing Observations](https://leetcode.com/problems/find-missing-observations) | [Python](./leetcode/2028-find-missing-observations/find_missing_observations.py) |
 | 2037 | Easy | [Minimum Number Of Moves To Seat Everyone](https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/) | [Python](./leetcode/2037-minimum-number-of-moves-to-seat-everyone/minimum_number_of_moves_to_seat_everyone.py) |
 | 2085 | Easy | [Count Common Words With One Occurrence](https://leetcode.com/problems/count-common-words-with-one-occurrence/) | [Python](./leetcode/2085-count-common-words-with-one-occurrence/count_common_words_with_one_occurrence.py) |
+| 2259 | Easy | [Remove Digit From Number to Maximize Result](https://leetcode.com/problems/remove-digit-from-number-to-maximize-result) | [Python](./leetcode/2259-remove-digit-from-number-to-maximize-result/remove_digit_from_number_to_maximize_result.py) |
 | 3163 | Medium | [String Compression III](https://leetcode.com/problems/string-compression-iii) | [Python](./leetcode/3163-string-compression-iii/string_compression_iii.py) |
 
 
