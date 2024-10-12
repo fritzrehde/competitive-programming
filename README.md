@@ -98,6 +98,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 1137 | Easy | [N-Th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) | [Python](./leetcode/1137-n-th-tribonacci-number/n-th_tribonacci_number.py) |
 | 1143 | Medium | [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence) | [Python](./leetcode/1143-longest-common-subsequence/longest_common_subsequence.py) |
 | 1207 | Easy | [Unique Number of Occurrences](https://leetcode.com/problems/unique-number-of-occurrences) | [Python](./leetcode/1207-unique-number-of-occurrences/unique_number_of_occurrences.py) |
+| 1304 | Easy | [Find N Unique Integers Sum up to Zero](https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero) | [Python](./leetcode/1304-find-n-unique-integers-sum-up-to-zero/find_n_unique_integers_sum_up_to_zero.py) |
 | 1431 | Easy | [Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies) | [Python](./leetcode/1431-kids-with-the-greatest-number-of-candies/kids_with_the_greatest_number_of_candies.py) |
 | 1443 | Medium | [Minimum Time To Collect All Apples In A Tree](https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/) | [Python](./leetcode/1443-minimum-time-to-collect-all-apples-in-a-tree/minimum_time_to_collect_all_apples_in_a_tree.py) |
 | 1518 | Easy | [Water Bottles](https://leetcode.com/problems/water-bottles/) | [Python](./leetcode/1518-water-bottles/water_bottles.py) |
