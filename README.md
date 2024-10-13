@@ -106,6 +106,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 1518 | Easy | [Water Bottles](https://leetcode.com/problems/water-bottles/) | [Python](./leetcode/1518-water-bottles/water_bottles.py) |
 | 1578 | Medium | [Minimum Time to Make Rope Colorful](https://leetcode.com/problems/minimum-time-to-make-rope-colorful) | [Python](./leetcode/1578-minimum-time-to-make-rope-colorful/minimum_time_to_make_rope_colorful.py) |
 | 1636 | Easy | [Sort Array By Increasing Frequency](https://leetcode.com/problems/sort-array-by-increasing-frequency/) | [Python](./leetcode/1636-sort-array-by-increasing-frequency/sort_array_by_increasing_frequency.py) |
+| 1653 | Medium | [Minimum Deletions to Make String Balanced](https://leetcode.com/problems/minimum-deletions-to-make-string-balanced) | [Python](./leetcode/1653-minimum-deletions-to-make-string-balanced/minimum_deletions_to_make_string_balanced.py) |
 | 1717 | Medium | [Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings/) | [Python](./leetcode/1717-maximum-score-from-removing-substrings/maximum_score_from_removing_substrings.py) |
 | 1768 | Easy | [Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately) | [Python](./leetcode/1768-merge-strings-alternately/merge_strings_alternately.py) |
 | 1822 | Easy | [Sign of the Product of an Array](https://leetcode.com/problems/sign-of-the-product-of-an-array) | [Python](./leetcode/1822-sign-of-the-product-of-an-array/sign_of_the_product_of_an_array.py) |
