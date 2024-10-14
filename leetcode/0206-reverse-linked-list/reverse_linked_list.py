@@ -44,7 +44,7 @@ class Solution:
         prev = None
 
         while curr is not None:
-            # Convert prev -> curr -> next to prev <- curr <- next.
+            # Convert prev -> curr to prev <- curr.
             next = curr.next
             curr.next = prev
 
@@ -68,7 +68,7 @@ class Solution:
             if curr is None:
                 return prev
             else:
-                # Convert prev -> curr -> next to prev <- curr <- next.
+                # Convert prev -> curr to prev <- curr.
                 next = curr.next
                 curr.next = prev
 
