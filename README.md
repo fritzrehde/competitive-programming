@@ -25,6 +25,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 8 | Medium | [String To Integer (Atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | [Python](./leetcode/0008-string-to-integer-atoi/string_to_integer_atoi.py) |
 | 10 | Hard | [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching) | [Python](./leetcode/0010-regular-expression-matching/regular_expression_matching.py) |
 | 11 | Medium | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | [Python](./leetcode/0011-container-with-most-water/container_with_most_water.py) |
+| 13 | Easy | [Roman to Integer](https://leetcode.com/problems/roman-to-integer) | [Python](./leetcode/0013-roman-to-integer/roman_to_integer.py) |
 | 14 | Easy | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Python](./leetcode/0014-longest-common-prefix/longest_common_prefix.py) |
 | 15 | Medium | [3Sum](https://leetcode.com/problems/3sum/) | [Python](./leetcode/0015-3sum/3sum.py) |
 | 17 | Medium | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number) | [Python](./leetcode/0017-letter-combinations-of-a-phone-number/letter_combinations_of_a_phone_number.py) |
