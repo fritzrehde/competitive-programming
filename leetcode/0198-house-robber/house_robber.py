@@ -30,7 +30,7 @@ def test():
 
     # Test all different algorithms/implementations
     solution = Solution()
-    for algo in [solution.dp]:
+    for algo in [solution.dp, solution.dp_mem_optized]:
         test_algo(algo)
 
 
