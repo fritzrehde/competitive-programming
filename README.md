@@ -60,6 +60,8 @@ Each of the code solution files contains the problem description, several (diffe
 | 155 | Medium | [Min Stack](https://leetcode.com/problems/min-stack) | [Python](./leetcode/0155-min-stack/min_stack.py) |
 | 167 | Medium | [Two Sum Ii - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [Python](./leetcode/0167-two-sum-ii-input-array-is-sorted/two_sum_ii_input_array_is_sorted.py) |
 | 179 | Medium | [Largest Number](https://leetcode.com/problems/largest-number/) | [Python](./leetcode/0179-largest-number/largest_number.py) |
+| 189 | Medium | [Rotate Array](https://leetcode.com/problems/rotate-array) | [Python](./leetcode/0189-rotate-array/rotate_array.py) |
+| 198 | Medium | [House Robber](https://leetcode.com/problems/house-robber) | [Python](./leetcode/0198-house-robber/house_robber.py) |
 | 200 | Medium | [Number of Islands](https://leetcode.com/problems/number-of-islands) | [Python](./leetcode/0200-number-of-islands/number_of_islands.py) |
 | 206 | Easy | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list) | [Python](./leetcode/0206-reverse-linked-list/reverse_linked_list.py) |
 | 207 | Medium | [Course Schedule](https://leetcode.com/problems/course-schedule/) | [Python](./leetcode/0207-course-schedule/course_schedule.py) |
