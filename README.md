@@ -79,6 +79,7 @@ Each of the code solution files contains the problem description, several (diffe
 | 292 | Easy | [Nim Game](https://leetcode.com/problems/nim-game/) | [Python](./leetcode/0292-nim-game/nim_game.py) |
 | 300 | Medium | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) | [Python](./leetcode/0300-longest-increasing-subsequence/longest_increasing_subsequence.py) |
 | 345 | Easy | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string) | [Python](./leetcode/0345-reverse-vowels-of-a-string/reverse_vowels_of_a_string.py) |
+| 347 | Medium | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements) | [C++](./leetcode/0347-top-k-frequent-elements/solution.cpp) |
 | 370 | Medium | [Range Addition](https://leetcode.com/problems/range-addition) | [Python](./leetcode/0370-range-addition/range_addition.py) |
 | 430 | Medium | [Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list) | [Python](./leetcode/0430-flatten-a-multilevel-doubly-linked-list/flatten_a_multilevel_doubly_linked_list.py) |
 | 443 | Medium | [String Compression](https://leetcode.com/problems/string-compression) | [Python](./leetcode/0443-string-compression/string_compression.py) |
