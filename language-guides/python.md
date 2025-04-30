@@ -87,6 +87,16 @@ def cmp(a, b):
 v.sort(key=functools.cmp_to_key(cmp))
 ```
 
+### Strings
+
+Substring or character search:
+```python
+if (at_idx := s.find(substring, start, end)) != -1:
+    ...
+else:
+    ...
+```
+
 ## Algorithms
 
 ### Binary search
