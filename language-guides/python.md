@@ -87,15 +87,59 @@ def cmp(a, b):
 v.sort(key=functools.cmp_to_key(cmp))
 ```
 
+### Itertools
+
+```python
+itertools.islice(iterable, stop)
+itertools.islice(iterable, start, stop[, step])
+```
+
+```python
+itertools.chain(*iterables)
+```
+
 ### Strings
 
 Substring or character search:
 ```python
+# find index of start of next occurence of substring in s[start:end].
 if (at_idx := s.find(substring, start, end)) != -1:
     ...
 else:
     ...
 ```
+
+### Lists
+
+Element search:
+```python
+try:
+    # find index of next occurence of elem in lst[start:end].
+    idx = lst.index(elem, start, end)
+    ...
+except ValueError:
+    ...
+```
+
+Find index of next element that matches a predicate:
+```python
+def find_next_if(lst, pred, start=0) -> int | None:
+    return next((i for i, x in enumerate(lst[start:], start) if pred(x)), None)
+```
+
+### Hashing
+
+Causes `__hash__` and `__eq__` auto fn impls, which is safe because there will be a panic if the data inside `CustomClass` is mutated, e.g. with `c.some_id`, since this might change the hash value, which would invalidate the data structure that relies on this hash not changing (hashset or hashmap).
+```python
+@dataclass(frozen=True)
+class CustomClass:
+    some_id: int
+```
+
+### `chr` and `ord`
+
+TODO
+
 
 ## Algorithms
 
