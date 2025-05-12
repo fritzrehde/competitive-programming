@@ -32,10 +32,50 @@ def get_tuple() -> Tuple[int, str]:
 
 Java:
 ```java
+// note that fields of a records are final, so reassigning record field values is impossible.
 record Pair(Integer a, String b) {}
 Pair getTuple() {
     return new Pair(10, "hello");
 }
+```
+
+### Optional
+
+Python:
+```python
+def get_option() -> int | None:
+    if 10 == 11:
+        return 42
+    else:
+        return None
+
+if (some := get_option()) is not None:
+    ...
+else:
+    ...
+
+value = some if (some := get_option()) is not None else getDefault()
+```
+
+Java:
+```java
+Optional<Integer> getOptional() {
+    if (10 == 11) {
+        return Optional.of(42);
+    } else {
+        return Optional.empty();
+    }
+}
+
+Optional<Integer> opt;
+if ((opt = getOptional()).isPresent()) {
+    int some = opt.get();
+    ...
+} else {
+    ...
+}
+
+var value = getOptional().orElseGet(() -> getDefault());
 ```
 
 ### Array
@@ -117,6 +157,11 @@ del d[k]
 d = defaultdict(lambda: [])
 d[k].append(v)
 d[k] += 1
+
+if (value := d.get(k, None)) is not None:
+    ...
+else:
+    ...
 ```
 
 Java:
@@ -134,6 +179,13 @@ d.remove(k);
 HashMap<K, List<V>> d = new HashMap<>();
 d.computeIfAbsent(k, key -> new ArrayList<>()).add(v);
 d.put(k, d.getOrDefault(k, 0) + 1)
+
+T value;
+if ((value = d.get(k)) != null) {
+    ...
+} else {
+    ...
+}
 ```
 
 ### Queue/deque
