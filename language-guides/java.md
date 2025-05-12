@@ -6,8 +6,7 @@
 
 Java doesn't have tuples, so we have two ways of mimicing them:
 
-1.
-We can pretend that a fixed size array is a tuple, but this isn't very type-safe, as the caller doesn't know how many elements the returned "tuple" contains.
+1. We can pretend that a fixed size array is a tuple, but this isn't very type-safe, as the caller doesn't know how many elements the returned "tuple" contains.
 We're also restricted to one type.
 
 Python:
@@ -23,8 +22,7 @@ int[] getTuple() {
 }
 ```
 
-2.
-We can create a record class with named fields.
+2. We can create a record class with named fields.
 ```python
 def get_tuple() -> Tuple[int, str]:
     return (10, "hello")
