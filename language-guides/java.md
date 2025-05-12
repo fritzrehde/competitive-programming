@@ -108,6 +108,9 @@ e = v[1]
 v.append(2)
 # remove element at index 1.
 del v[1]
+
+# pop last element.
+last = v.pop()
 ```
 
 Java:
@@ -119,6 +122,10 @@ v.add(2);
 v.remove(1);
 // convert from List<T> to T[].
 int[] arr = v.stream().mapToInt(Integer::intValue).toArray();
+
+// Pop last element, isn't included in List API.
+ArrayList<Integer> v2 = new ArrayList<>(Arrays.asList(1, 2, 3));
+var last = v2.remove(v2.size() - 1);
 ```
 
 
@@ -145,6 +152,7 @@ boolean contains = s.contains(elem);
 Python:
 ```py
 d = dict()
+d = { "key": "value" }
 
 # get: will raise exception if key doesn't exist.
 v = d[k]
@@ -156,17 +164,26 @@ del d[k]
 
 d = defaultdict(lambda: [])
 d[k].append(v)
+
+d = defaultdict(lambda: 0)
 d[k] += 1
 
 if (value := d.get(k, None)) is not None:
     ...
 else:
     ...
+
+# iterate over hashmap to hashmap.
+d = defaultdict(lambda: {})
+for (b, c) in d[a].items():
+    ...
 ```
 
 Java:
 ```java
-HashMap<K, V> d = new HashMap<>();
+Map<K, V> d = new HashMap<>();
+Map<K, V> d = new HashMap<>(Map.of("key", "value"));
+
 
 // get: will return null if key doesn't exist.
 var v = d.get(k);
@@ -178,12 +195,22 @@ d.remove(k);
 
 HashMap<K, List<V>> d = new HashMap<>();
 d.computeIfAbsent(k, key -> new ArrayList<>()).add(v);
-d.put(k, d.getOrDefault(k, 0) + 1)
+
+HashMap<K, Integer> d = new HashMap<>();
+d.put(k, d.getOrDefault(k, 0) + 1);
 
 T value;
 if ((value = d.get(k)) != null) {
     ...
 } else {
+    ...
+}
+
+// iterate over hashmap to hashmap.
+Map<Integer, Map<Integer, Integer>> d = new HashMap<>();
+for (var entry : d.getOrDefault(a, Map.of()).entrySet()) {
+    var b = entry.getKey();
+    var c = entry.getValue();
     ...
 }
 ```
@@ -567,7 +594,7 @@ public static void bfs(Map<Integer, List<Integer>> neighbours, int start) {
     while (!q.isEmpty()) {
         NodeDistance x = q.poll();
         nodeToDist.put(x.node(), x.dist());
-        for (int neighbour : neighbours.getOrDefault(x.node(), new ArrayList<>())) {
+        for (int neighbour : neighbours.getOrDefault(x.node(), List.of())) {
             if (visited.contains(neighbour))
                 continue;
             visited.add(neighbour);
@@ -637,7 +664,7 @@ public static void dijkstra(Map<Integer, Map<Integer, Integer>> neighbours, int 
         
         dist.put(node, d);
 
-        for (Map.Entry<Integer, Integer> entry : neighbours.getOrDefault(node, new HashMap<>()).entrySet()) {
+        for (Map.Entry<Integer, Integer> entry : neighbours.getOrDefault(node, Map.of()).entrySet()) {
             int neighbour = entry.getKey();
             int weight = entry.getValue();
             if (visited.contains(neighbour))
