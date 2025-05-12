@@ -25,6 +25,12 @@ boolean contains = s.contains(elem);
 Python:
 ```py
 d = dict()
+
+# get: will raise exception if key doesn't exist.
+v = d[k]
+# get or default
+v = d.get(k, default)
+
 d[k] = v
 del d[k]
 
@@ -35,6 +41,12 @@ d[k].append(v)
 Java:
 ```java
 HashMap<K, V> d = new HashMap<>();
+
+// get: will return null if key doesn't exist.
+var v = d.get(k);
+// get or default
+var v = d.getOrDefault(k, default);
+
 d.put(k, v);
 d.remove(k);
 
@@ -160,6 +172,95 @@ public static void main(String[] args) {
     v.sort(cmp);
 }
 ```
+
+### Inline closures/lambdas
+
+Python:
+```python
+supplier = lambda: 10
+
+consumer = lambda x: print(x)
+
+function = lambda s: len(s)
+
+predicate = lambda x: x % 2 == 0
+
+bifunction = lambda x, s: x == len(s)
+```
+
+Java:
+```java
+Supplier<Integer> supplier = () -> 10;
+Integer supplier_called = supplier();
+
+Consumer<Integer> consumer = x -> System.out.println(x);
+consumer(20);
+
+Function<String, Integer> function = s -> s.length();
+function.apply("foo");
+
+Predicate<Integer> predicate = x -> x % 2 == 0;
+predicate(42);
+
+BiFunction<Integer, String, Boolean> bifunction = (x, s) -> x == s.length();
+bifunction.apply(2, "hi");
+
+// BiConsumer and BiPredicate follow naturally.
+```
+Note that Java lambdas can only capture local variables that are final (cannot be reassigned after capture), and it's the value for primitives and the reference for objects that is captured.
+
+
+### Iterators/generators/streams.
+
+
+Python:
+```python
+# flatmapping nested loops.
+def all_cells():
+    for r in range(0, rows):
+        for c in range(0, cols):
+            yield (r, c)
+
+# filtering.
+def all_matching_pred():
+    for cell in all_cells():
+        if pred(cell):
+            yield cell
+
+# iterate over anything (iterator, generator).
+for e in iterable:
+    pass
+
+# collect from iterator to dictionary.
+d = {k: k2v(k) for k in keys()}
+```
+
+Java:
+```java
+// flatmapping nested loops (.boxed() is necessary to convert from primitive to reference type).
+Supplier<Stream<Node>> allCells = () -> IntStream.range(0, rows).boxed()
+    .flatMap(r -> IntStream.range(0, cols).mapToObj(c -> new Node(r, c)));
+
+// filtering.
+Supplier<Stream<Node>> allMatchingPred = () -> allCells.get().filter(pred);
+
+// iterate over stream with lambda body (bad, since it doesn't allow control flow stmts in body).
+stream.forEach(elem -> {
+    ...
+});
+
+// iterate over stream with regular for loop (better).
+Iterable<T> iterable = () -> stream.iterator();
+for (var elem : iterable) {
+    ...
+}
+
+// collect from stream to map.
+Map<K, V> = keyStream.collect(Collectors.toMap(
+    k -> k,
+    k -> k2v(k)));
+```
+
 
 ## Algorithms
 
