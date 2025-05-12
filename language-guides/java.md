@@ -2,6 +2,86 @@
 
 ## Data structures
 
+### Tuple
+
+Java doesn't have tuples, so we have two ways of mimicing them:
+
+1.
+We can pretend that a fixed size array is a tuple, but this isn't very type-safe, as the caller doesn't know how many elements the returned "tuple" contains.
+We're also restricted to one type.
+
+Python:
+```python
+def get_tuple() -> Tuple[int, int]:
+    return (10, 20)
+```
+
+Java:
+```java
+int[] getTuple() {
+    return new int[]{ 10, 20 };
+}
+```
+
+2.
+We can create a record class with named fields.
+```python
+def get_tuple() -> Tuple[int, str]:
+    return (10, "hello")
+```
+
+Java:
+```java
+record Pair(Integer a, String b) {}
+Pair getTuple() {
+    return new Pair(10, "hello");
+}
+```
+
+### Array
+
+Python: doesn't have fixed size arrays.
+
+Java:
+```java
+// primitive types: init elements with default, e.g. 0 for ints.
+int[] a = new int[5];
+// reference types: init elements with null.
+String[] s = new String[10];
+
+// arrays are fixed size.
+var numElements = a.length;
+
+var x = a[0];
+
+a[1] = 10;
+// throws ArrayIndexOutOfBoundsException
+a[5] = 10;
+```
+
+### List/vector
+
+Python:
+```python
+v = [1, 2, 3]
+e = v[1]
+v.append(2)
+# remove element at index 1.
+del v[1]
+```
+
+Java:
+```java
+List<Integer> v = new ArrayList<>(Arrays.asList(1, 2, 3));
+int e = v.get(1);
+v.add(2);
+// remove element at index 1.
+v.remove(1);
+// convert from List<T> to T[].
+int[] arr = v.stream().mapToInt(Integer::intValue).toArray();
+```
+
+
 ### Hashset
 
 Python:
@@ -36,6 +116,7 @@ del d[k]
 
 d = defaultdict(lambda: [])
 d[k].append(v)
+d[k] += 1
 ```
 
 Java:
@@ -52,6 +133,7 @@ d.remove(k);
 
 HashMap<K, List<V>> d = new HashMap<>();
 d.computeIfAbsent(k, key -> new ArrayList<>()).add(v);
+d.put(k, d.getOrDefault(k, 0) + 1)
 ```
 
 ### Queue/deque
@@ -233,6 +315,9 @@ for e in iterable:
 
 # collect from iterator to dictionary.
 d = {k: k2v(k) for k in keys()}
+
+# get max value in iterator.
+max((dp[r][c] for r in range(0, m) for c in range(0, n)), default=0)
 ```
 
 Java:
@@ -259,6 +344,54 @@ for (var elem : iterable) {
 Map<K, V> = keyStream.collect(Collectors.toMap(
     k -> k,
     k -> k2v(k)));
+
+// get max value in stream.
+IntStream.range(0, m).flatMap(r -> IntStream.range(0, n).map(c -> dp[r][c])).max().orElse(0);
+```
+
+### Exceptions
+
+- Unchecked exceptions:
+
+Python:
+```python
+def foo():
+    raise Exception("error message")
+
+# not forced to handle exceptions.
+foo()
+```
+
+Java:
+```java
+void foo() {
+    // unchecked exception: any class that extends RuntimeException.
+    throw new RuntimeException("error message");
+}
+
+// not forced to handle exceptions.
+foo();
+```
+
+- Checked exceptions:
+
+Python: does not have checked exceptions.
+
+Java:
+```java
+void foo() throws CheckedException, CheckedException2 {
+    // checked exception: any class that extends Exception but not RuntimeException.
+    throw new CheckedException("error message");
+}
+
+// forced to handle exceptions.
+try {
+    foo();
+} catch (CheckedException e) {
+    ...
+} catch (CheckedException2 e) {
+    ...
+}
 ```
 
 
@@ -374,7 +507,7 @@ public static void bfs(Map<Integer, List<Integer>> neighbours, int start) {
     Set<Integer> visited = new HashSet<>();
     Map<Integer, Integer> nodeToDist = new HashMap<>();
     // [(node, distance)]
-    Queue<NodeDistance> q = new LinkedList<>();
+    Queue<NodeDistance> q = new ArrayDeque<>();
 
     q.add(new NodeDistance(start, 0));
     visited.add(start);
