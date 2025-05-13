@@ -408,6 +408,12 @@ T e = s.ceiling(x); // smallest element >= x
 T e = s.lower(x); // largest element < x
 T e = s.higher(x); // smallest element > x
 T e = s.floor(x); // largest element <= x
+
+TreeMap<Integer, String> d = new TreeMap<>();
+d.put(k, v);
+d.remove(k);
+Map.Entry<Integer, String> entry = d.ceilingEntry(k);
+Integer key = d.ceilingKey(k);
 ```
 
 ## Common tasks
