@@ -55,6 +55,19 @@ else:
     ...
 
 value = some if (some := get_option()) is not None else getDefault()
+
+# get arg if non-None, else default value.
+value = some if (some := getSthOrNone()) is not None else default
+
+match (opt_a, opt_b):
+    case (None, None):
+        pass
+    case (some, None):
+        pass
+    case (None, some):
+        pass
+    case (some_a, some_b):
+        pass
 ```
 
 Java:
@@ -76,6 +89,9 @@ if ((opt = getOptional()).isPresent()) {
 }
 
 var value = getOptional().orElseGet(() -> getDefault());
+
+// get arg if non-null, else default value.
+var value = Optional.ofNullable(getSthOrNone()).orElse(default);
 ```
 
 ### Array
@@ -135,15 +151,35 @@ Python:
 a = "hello"
 b = "world"
 
+# convert int to str.
+x = 1
+x_str = str(x)
+
 # concatenation (creates new allocation).
 c = a + b
 c = f"{a}{b}"
+
+// substring.
+// optional start: inclusive, optional end: exclusive, both can be out of bounds, which will truncate to start/end.
+sub = a[start:end]
+sub = a[:end]
+sub = a[start:]
+
+# find index of start of next occurence of substring in s[start:end].
+if (at_idx := s.find(substring, start, end)) != -1:
+    ...
+else:
+    ...
 
 # joining by adding separator between each elements.
 d = ",".join(["one", "two", "three"])
 
 # split string and map elements.
 nums = [int(num) for num in "1,2,3".split(",")]
+
+# iterate over chars in a word.
+for c in s:
+    pass
 ```
 
 Java:
@@ -151,19 +187,61 @@ Java:
 String a = "hello";
 String b = "world";
 
+// convert int to string.
+int x = 1;
+String xString = Integer.toString(x);
+xString = String.format("%d", x);
+
+// format specifiers:
+// %s : string
+// %d : decimal integer
+// %f : float, double
+// %c : char
+
 // concatenation (creates new allocation);
 String c = a + b;
 c = String.format("%s%s", a, b);
 
+// substring that allocates, and start and end must be valid.
+String substring = a.substring(start, end);
+
+// find idx of next occurence.
+int idx;
+if ((idx = a.indexOf('l', start)) != -1) {
+    ...
+} else {
+    ...
+}
+
+// substring with zero-copy.
+CharBuffer buf = CharBuffer.wrap(a);
+buf.position(start).limit(end);
+CharSequence view = buf.slice();
+
 // joining by adding separator between each elements.
 String d = List.of("one", "two", "three").stream().collect(Collectors.joining(","));
-d = String.join(",", items);
+d = String.join(",", List.of("one", "to", "three"));
 
 // split string and map elements.
 // String.split returns String[], so has no .stream() method.
 List<Integer> nums = Arrays.stream("1,2,3".split(",")).map(Integer::parseInt).collect(Collectors.toList());
-```
 
+// iterate over chars in a word.
+// 1. bad: makes a whole copy, returning a char[].
+for (char c : word.toCharArray()) {
+    ...
+}
+// 2. fast, but not stream-able:
+for (int i = 0; i < s.length(); ++i) {
+    char c = s.charAt(i);
+    ...
+}
+// 3. fast, stream-able:
+Iterable<Character> chars = () -> word.chars().mapToObj(charInt -> (char)charInt).iterator();
+for (Character c : chars) {
+    ...
+}
+```
 
 ### Hashset
 
@@ -277,11 +355,13 @@ T first = q.removeFirst();
 
 Python:
 ```py
+// min heap
 min_heap = []
 heappush(min_heap, x)
 x = -1 * min_heap[0]
 x = heappop(min_heap)
 
+// max heap
 max_heap = []
 heappush(max_heap, -x)
 x = -1 * heappop(max_heap)
@@ -289,11 +369,13 @@ x = -1 * heappop(max_heap)
 
 Java:
 ```java
+// min heap
 PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 minHeap.add(x);
 int x = minHeap.peek();
 int x = minHeap.poll();
 
+// max heap
 PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 maxHeap.add(x);
 int x = maxHeap.peek();
