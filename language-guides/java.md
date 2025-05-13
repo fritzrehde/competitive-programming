@@ -23,6 +23,8 @@ int[] getTuple() {
 ```
 
 2. We can create a record class with named fields.
+
+Python:
 ```python
 def get_tuple() -> Tuple[int, str]:
     return (10, "hello")
@@ -126,6 +128,42 @@ ArrayList<Integer> v2 = new ArrayList<>(Arrays.asList(1, 2, 3));
 var last = v2.remove(v2.size() - 1);
 ```
 
+### Strings
+
+Python:
+```python
+a = "hello"
+b = "world"
+
+# concatenation (creates new allocation).
+c = a + b
+c = f"{a}{b}"
+
+# joining by adding separator between each elements.
+d = ",".join(["one", "two", "three"])
+
+# split string and map elements.
+nums = [int(num) for num in "1,2,3".split(",")]
+```
+
+Java:
+```java
+String a = "hello";
+String b = "world";
+
+// concatenation (creates new allocation);
+String c = a + b;
+c = String.format("%s%s", a, b);
+
+// joining by adding separator between each elements.
+String d = List.of("one", "two", "three").stream().collect(Collectors.joining(","));
+d = String.join(",", items);
+
+// split string and map elements.
+// String.split returns String[], so has no .stream() method.
+List<Integer> nums = Arrays.stream("1,2,3".split(",")).map(Integer::parseInt).collect(Collectors.toList());
+```
+
 
 ### Hashset
 
@@ -192,7 +230,9 @@ d.put(k, v);
 d.remove(k);
 
 HashMap<K, List<V>> d = new HashMap<>();
+// computeIfAbsent = lazy init, putIfAbsent = eager init.
 d.computeIfAbsent(k, key -> new ArrayList<>()).add(v);
+d.putIfAbsent(k, new ArrayList<>()).add(v);
 
 HashMap<K, Integer> d = new HashMap<>();
 d.put(k, d.getOrDefault(k, 0) + 1);
@@ -290,42 +330,50 @@ T e = s.floor(x); // largest element <= x
 
 ## Common tasks
 
-### Sorting (by key and with custom comparator)
+### Sorting
 
 Python:
 ```py
 v = [(1, 2), (2, 1), (3, 0)]
 
-def by_snd_desc(item):
-    fst, snd = item
-    return -snd
+# sort by key: asc by first, desc by len(snd), desc by third.
+def key(item):
+    # fst = int, snd = str, thd = float
+    fst, snd, thd = item
+    return fst, -len(snd), -thd
 
-v.sort(key=by_snd_desc)
+v.sort(key=key)
 
+# sort using custom comparator.
 def cmp(a, b):
     # -1: a < b
     # 0: a == b
     # 1: a > b
-    a_fst, a_snd = a
-    b_fst, b_snd = b
-    return b_snd - a_snd
+    a_fst, a_snd, a_thd = a
+    b_fst, b_snd, b_thd = b
+    return len(b_snd) - len(a_snd)
 
 v.sort(key=functools.cmp_to_key(cmp))
 ```
 
 Java:
 ```java
-public record Pair(int fst, int snd) {}
+public record Tuple(int fst, String snd, double thd) {}
 
 public static void main(String[] args) {
-    List<Pair> v = new ArrayList<>();
+    List<Tuple> v = new ArrayList<>();
 
-    v.sort(Comparator.comparingInt(Pair::snd).reversed());
+    // sort by key: asc by first, desc by len(snd), desc by third.
+    var comparator = Comparator.comparingInt(Tuple::fst)
+        .thenComparing(Comparator.comparingInt(tuple -> tuple.snd().length()).reversed())
+        .thenComparing(Comparator.comparingDouble(Tuple::thd).reversed());
+    v.sort(comparator);
 
-    Comparator<Pair> cmp = new Comparator<>() {
+    // sort using custom comparator.
+    Comparator<Tuple> cmp = new Comparator<>() {
         @Override
-        public int compare(Pair a, Pair b) {
-            return b.snd() - a.snd();
+        public int compare(Tuple a, Tuple b) {
+            return b.snd().length() - a.snd().length();
         }
     };
     v.sort(cmp);
@@ -350,16 +398,18 @@ bifunction = lambda x, s: x == len(s)
 Java:
 ```java
 Supplier<Integer> supplier = () -> 10;
-Integer supplier_called = supplier();
+Integer supplier_called = supplier.get();
 
 Consumer<Integer> consumer = x -> System.out.println(x);
-consumer(20);
+// we can, optionally, specify the type of the args (rule: specify types of all args, or none of them).
+Consumer<Integer> consumer = (Integer x) -> System.out.println(x);
+consumer.accept(20);
 
 Function<String, Integer> function = s -> s.length();
 function.apply("foo");
 
 Predicate<Integer> predicate = x -> x % 2 == 0;
-predicate(42);
+predicate.test(42);
 
 BiFunction<Integer, String, Boolean> bifunction = (x, s) -> x == s.length();
 bifunction.apply(2, "hi");
@@ -469,6 +519,52 @@ try {
 } catch (CheckedException2 e) {
     ...
 }
+```
+
+### Match statements
+
+Python:
+```python
+x = 10
+match x:
+    case 1:
+        print("a")
+    case 10 | 20:
+        print("b")
+    case _:
+        print("c")
+
+
+# match as "expression" (not proper): return from each branch of the match stmt.
+match x:
+    case 1:
+        ret = 10
+    case 10:
+        ret = 20
+    case _:
+        ret = 30
+```
+
+Java:
+```java
+int x = 10;
+switch (x) {
+    case 1 -> System.out.println("a");
+    case 10, 20 -> {
+        System.out.println("b");
+    }
+    default -> System.out.println("c");
+};
+
+// switch as expression.
+var ret = switch(x) {
+    case 1 -> 10;
+    case 10 -> {
+        System.out.println("printing stuff");
+        yield 20;
+    }
+    default -> 30;
+};
 ```
 
 
