@@ -80,6 +80,7 @@ Optional<Integer> getOptional() {
     }
 }
 
+// 1. allows for side effects in branches (e.g. break, continue etc.).
 Optional<Integer> opt;
 if ((opt = getOptional()).isPresent()) {
     int some = opt.get();
@@ -88,10 +89,30 @@ if ((opt = getOptional()).isPresent()) {
     ...
 }
 
+// 2. clean, but no side effects (given restrictions on lambdas).
+getOptional().ifPresentOrElse(
+    some -> {
+        ...
+    },
+    () -> {
+        ...
+    });
+
+
 var value = getOptional().orElseGet(() -> getDefault());
 
 // get arg if non-null, else default value.
 var value = Optional.ofNullable(getSthOrNone()).orElse(default);
+
+if (optA.isEmpty() && optB.isEmpty()) {
+    ...
+} else if (optA.isPresent() && optB.isEmpty()) {
+    ...
+} else if (optA.isEmpty() && optB.isPresent()) {
+    ...
+} else if (optA.isPresent() && optB.isPresent()) {
+    ...
+}
 ```
 
 ### Array
@@ -394,6 +415,10 @@ i = s.bisect_left(x)-1 # idx of largest value < x
 i = s.bisect_right(x) # idx of smallest value > x (idx right of x where next val would be inserted)
 i = s.bisect_right(x)-1 # idx of largest value <= x
 
+# peek first or last.
+first_opt = next(iter(s), None)
+last_opt = next(reversed(s), None)
+
 d = SortedDict()
 d[k] = v
 del d[k]
@@ -408,6 +433,11 @@ T e = s.ceiling(x); // smallest element >= x
 T e = s.lower(x); // largest element < x
 T e = s.higher(x); // smallest element > x
 T e = s.floor(x); // largest element <= x
+
+// peek first or last.
+Optional<Integer> firstOpt = Optional.ofNullable(s.peekFirst());
+Optional<Integer> lastOpt = Optional.ofNullable(s.peekLast());
+// poll[First|Last]() also exists.
 
 TreeMap<Integer, String> d = new TreeMap<>();
 d.put(k, v);
@@ -609,7 +639,7 @@ try {
 }
 ```
 
-### Match statements
+### Match statements, pattern matching
 
 Python:
 ```python
