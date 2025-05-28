@@ -330,7 +330,7 @@ for (size_t i = 0; i < s.size(); ++i) {
 ### Hashset
 
 Python:
-```py
+```python
 s = set()
 s.add(elem)
 s.remove(elem)
@@ -349,7 +349,7 @@ bool contains = s.contains(elem);  // C++20
 ### Hashmap, defaultdict
 
 Python:
-```py
+```python
 d = dict()
 d = { "k1": "v2", "k2": "v2" }
 
@@ -444,7 +444,7 @@ if (auto it = d.find(a); it != d.end()) {
 ### Queue/deque
 
 Python:
-```py
+```python
 q = deque()
 q.append(x)
 q.appendleft(x)
@@ -452,57 +452,56 @@ last = q.pop()
 first = q.popleft()
 ```
 
-Java:
-```java
-Deque<T> q = new LinkedList<>();
-q.addLast(x);
-q.addFirst(x);
-T last = q.removeLast();
-T first = q.removeFirst();
+Cpp:
+```cpp
+std::deque<int> q;
+q.push_back(x);
+q.push_front(x);
+int last = q.back(); q.pop_back();
+int first = q.front(); q.pop_front();
 ```
 
 ### Heap
 
 Python:
-```py
-// min heap
+```python
+# min heap
 min_heap = []
 heappush(min_heap, x)
 x = -1 * min_heap[0]
 x = heappop(min_heap)
 
-// max heap
+# max heap
 max_heap = []
 heappush(max_heap, -x)
 x = -1 * heappop(max_heap)
 ```
 
-Java:
-```java
+Cpp:
+```cpp
 // min heap
-PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-minHeap.add(x);
-int x = minHeap.peek();
-int x = minHeap.poll();
+std::priority_queue<int, std::vector<int>, std::greater<int>> min_heap;
+min_heap.push(x);
+int smallest = min_heap.top(); min_heap.pop();
 
 // max heap
-PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-maxHeap.add(x);
-int x = maxHeap.peek();
-int x = maxHeap.poll();
+using Item = std::tuple<int, std::string>;
+std::priority_queue<Item, std::vector<Item>> max_heap;
+max_heap.push({10, "hello"});
+auto [_, largest] = max_heap.top(); max_heap.pop();
 ```
 
 ### BST
 
 Python:
-```py
+```python
 s = SortedSet()
 s.add(x)
 s.remove(x)
-i = s.bisect_left(x) # idx of smallest value >= x (idx left of x where next val would be inserted)
-i = s.bisect_left(x)-1 # idx of largest value < x
-i = s.bisect_right(x) # idx of smallest value > x (idx right of x where next val would be inserted)
-i = s.bisect_right(x)-1 # idx of largest value <= x
+i = s.bisect_left(x)     # idx of smallest value >= x (idx left of x where next val would be inserted)
+i = s.bisect_left(x)-1   # idx of largest value < x
+i = s.bisect_right(x)    # idx of smallest value > x (idx right of x where next val would be inserted)
+i = s.bisect_right(x)-1  # idx of largest value <= x
 
 # peek first or last.
 first_opt = next(iter(s), None)
@@ -513,26 +512,24 @@ d[k] = v
 del d[k]
 ```
 
-Java:
-```java
-TreeSet<Integer> s = new TreeSet<>();
-s.add(x);
-s.remove(x);
-T e = s.ceiling(x); // smallest element >= x
-T e = s.lower(x); // largest element < x
-T e = s.higher(x); // smallest element > x
-T e = s.floor(x); // largest element <= x
+Cpp:
+```cpp
+std::set<int> s;
+s.insert(x);
+s.erase(x);
+// NOTE: compare result of s.[lower|upper]_bound(x) with s.begin() to ensure std::prev() returns valid iterator/is not UB.
+auto it = s.lower_bound(x);             // iter to smallest value >= x
+auto it = std::prev(s.lower_bound(x));  // iter to largest value < x
+auto it = s.upper_bound(x);             // iter to smallest value > x
+auto it = std::prev(s.upper_bound(x));  // iter to largest value <= x
 
 // peek first or last.
-Optional<Integer> firstOpt = Optional.ofNullable(s.peekFirst());
-Optional<Integer> lastOpt = Optional.ofNullable(s.peekLast());
-// poll[First|Last]() also exists.
+std::optional<int> first_opt = !s.empty() ? std::optional<int>{ *s.begin() } : std::nullopt;
+std::optional<int> last_opt = !s.empty() ? std::optional<int>{ *s.rbegin() } : std::nullopt;
 
-TreeMap<Integer, String> d = new TreeMap<>();
-d.put(k, v);
-d.remove(k);
-Map.Entry<Integer, String> entry = d.ceilingEntry(k);
-Integer key = d.ceilingKey(k);
+std::map<int, std::string> d;
+d[k] = v;
+d.erase(k);
 ```
 
 
@@ -553,10 +550,10 @@ Cpp:
 ### Sorting
 
 Python:
-```py
-v = [(1, 2), (2, 1), (3, 0)]
+```python
+v = [(1, "hi", 2.5), (2, "looong", 1.2), (3, "blah", 0.1)]
 
-# sort by key: asc by first, desc by len(snd), desc by third.
+# 1. sort by key: asc by first, desc by len(snd), desc by third.
 def key(item):
     # fst = int, snd = str, thd = float
     fst, snd, thd = item
@@ -564,7 +561,7 @@ def key(item):
 
 v.sort(key=key)
 
-# sort using custom comparator.
+# 2. sort using custom comparator: compare by len(snd) only.
 def cmp(a, b):
     # -1: a < b
     # 0: a == b
@@ -576,28 +573,43 @@ def cmp(a, b):
 v.sort(key=functools.cmp_to_key(cmp))
 ```
 
-Java:
-```java
-public record Tuple(int fst, String snd, double thd) {}
+Cpp:
+```cpp
+using Item = std::tuple<int, std::string, double>;
+std::vector<Item> v {
+    {1, "hi", 2.5},
+    {2, "looong", 1.2},
+    {3, "blah", 0.1}
+};
 
-public static void main(String[] args) {
-    List<Tuple> v = new ArrayList<>();
+// 1. sort by key: asc by fst, desc by len(snd), desc by thd.
+std::sort(v.begin(), v.end(),
+    [](auto const &a, auto const &b) {
+        auto &[a_fst, a_snd, a_thd] = a;
+        auto &[b_fst, b_snd, b_thd] = b;
+        auto a_key = std::make_tuple(a_fst, -a_snd.size(), -a_thd);
+        auto b_key = std::make_tuple(b_fst, -b_snd.size(), -b_thd);
+        return a_key < b_key;
+    }
+);
+// C++20 introduces std::ranges::sort, which takes a projection lambda:
+std::ranges::sort(v,
+    std::less<>(),
+    [](auto const &item) {
+        auto &[fst, snd, thd] = item;
+        return std::tuple{fst, -snd.size(), -thd};
+    }
+);
 
-    // sort by key: asc by first, desc by len(snd), desc by third.
-    var comparator = Comparator.comparingInt(Tuple::fst)
-        .thenComparing(Comparator.comparingInt(tuple -> tuple.snd().length()).reversed())
-        .thenComparing(Comparator.comparingDouble(Tuple::thd).reversed());
-    v.sort(comparator);
-
-    // sort using custom comparator.
-    Comparator<Tuple> cmp = new Comparator<>() {
-        @Override
-        public int compare(Tuple a, Tuple b) {
-            return b.snd().length() - a.snd().length();
-        }
-    };
-    v.sort(cmp);
-}
+// 2. sort using custom comparator: compare by len(snd) only.
+std::sort(v.begin(), v.end(),
+    [](auto const &a, auto const &b) {
+        // true:  a < b
+        // false: a == b
+        // false: a > b
+        return std::get<1>(a).size() > std::get<1>(b).size();
+    }
+);
 ```
 
 ### Inline closures/lambdas
@@ -615,35 +627,51 @@ predicate = lambda x: x % 2 == 0
 bifunction = lambda x, s: x == len(s)
 ```
 
-Java:
-```java
-Supplier<Integer> supplier = () -> 10;
-Integer supplier_called = supplier.get();
+Cpp:
+```cpp
+// () -> int
+auto supplier = []() { return 10; };
+int supplied = supplier();  // 10
 
-Consumer<Integer> consumer = x -> System.out.println(x);
-// we can, optionally, specify the type of the args (rule: specify types of all args, or none of them).
-Consumer<Integer> consumer = (Integer x) -> System.out.println(x);
-consumer.accept(20);
+// (int) -> void
+auto consumer = [](int x) { std::cout << x << std::endl; };
+consumer(42);
 
-Function<String, Integer> function = s -> s.length();
-function.apply("foo");
+// (const std::string&) -> std::size_t
+auto function = [](const std::string &s) { return s.size(); };
+std::size_t len = function("hello");
 
-Predicate<Integer> predicate = x -> x % 2 == 0;
-predicate.test(42);
+// (int) -> bool
+auto predicate = [](int x) { return x % 2 == 0; };
+bool is_even = predicate(17);
 
-BiFunction<Integer, String, Boolean> bifunction = (x, s) -> x == s.length();
-bifunction.apply(2, "hi");
-
-// BiConsumer and BiPredicate follow naturally.
+// (int, const std::string&) -> bool
+auto bifunction = [](int x, const std::string &s) {
+    return x == static_cast<int>(s.size());
+};
+bool match = bifunction(5, "world");
 ```
-Note that Java lambdas can only capture local variables that are final (cannot be reassigned after capture), and it's the value for primitives and the reference for objects that is captured.
+Notes on C++ lambdas and captures:
+The capture clause `[]` controls how the lambda captures variables from the environment.
 
+- `[]` captures nothing.
+- `[=]` captures all used locals by value.
+- `[&]` captures all used locals by reference.
+- `[x, &y]` captures `x` by value, `y` by reference.
+- `[x, &]` captures `x` by value, any other used locals by reference.
+- `[&x, =]` captures `x` by reference, any other used locals by value.
+- `[x, =, &]` is a compile-error because `=` and `&` can't be used in the same capture clause
+
+Copies of variable values are made at the point where the lambda is created, not when it's used.
 
 ### Iterators/generators/streams.
 
-
 Python:
 ```python
+# iterate over anything (iterator, generator).
+for e in iterable:
+    pass
+
 # flatmapping nested loops.
 def all_cells():
     for r in range(0, rows):
@@ -656,10 +684,6 @@ def all_matching_pred():
         if pred(cell):
             yield cell
 
-# iterate over anything (iterator, generator).
-for e in iterable:
-    pass
-
 # collect from iterator to dictionary.
 d = {k: k2v(k) for k in keys()}
 
@@ -667,81 +691,86 @@ d = {k: k2v(k) for k in keys()}
 max((dp[r][c] for r in range(0, m) for c in range(0, n)), default=0)
 ```
 
-Java:
-```java
-// flatmapping nested loops (.boxed() is necessary to convert from primitive to reference type).
-Supplier<Stream<Node>> allCells = () -> IntStream.range(0, rows).boxed()
-    .flatMap(r -> IntStream.range(0, cols).mapToObj(c -> new Node(r, c)));
-
-// filtering.
-Supplier<Stream<Node>> allMatchingPred = () -> allCells.get().filter(pred);
-
-// iterate over stream with lambda body (bad, since it doesn't allow control flow stmts in body).
-stream.forEach(elem -> {
-    ...
-});
-
-// iterate over stream with regular for loop (better).
-Iterable<T> iterable = () -> stream.iterator();
-for (var elem : iterable) {
+Cpp:
+```cpp
+// iterate over anything (can do so by value or by reference).
+for (auto &e : iterable) {
     ...
 }
 
-// collect from stream to map.
-Map<K, V> = keyStream.collect(Collectors.toMap(
-    k -> k,
-    k -> k2v(k)));
+// C++20 Ranges:
+auto all_cells() {
+    auto rows_view = std::views::iota(0, rows);
+    auto cols_view = std::views::iota(0, cols);
+    return rows_view
+         | std::views::transform([&](int r){
+                return cols_view 
+                     | std::views::transform([&](int c){
+                           return std::pair{r,c};
+                       });
+           })
+         | std::views::join;
+}
 
-// get max value in stream.
-IntStream.range(0, m).flatMap(r -> IntStream.range(0, n).map(c -> dp[r][c])).max().orElse(0);
+auto all_matching_pred(auto pred) {
+    return all_cells()
+         | std::views::filter(pred);
+}
 
-// get max value in stream with comparator.
-T max = Stream.of(a, b).min(comparator).get();
+// C++XX Coroutines/generators:
+// NOTE: Generators are not in the cpp standard yet, but should be soon.
+using Cell = std::tuple<int, int>;
+std::generator<Cell> all_cells() {
+    for (int r = 0; r < rows; ++r) {
+        for (int c = 0; c < cols; ++c) {
+            co_yield {r, c};
+        }
+    }
+}
 ```
 
 ### Exceptions
 
-- Unchecked exceptions:
+All exceptions in both Python and Cpp are unchecked, meaning the caller does not know about all of the exceptions they might need to handle.
 
 Python:
 ```python
 def foo():
     raise Exception("error message")
 
-# not forced to handle exceptions.
-foo()
+try:
+    foo()
+except ExceptionTypeA as e:
+    ...
+except (ExceptionTypeA, ExceptionTypeB) as e:
+    ...
+except Exception as e:
+    # catch-all for any other exception.
+    ...
+else:
+    # runs only if no exception was raised.
+    ...
+finally:
+    # always runs, whether or not an exception occurred.
+    ...
+
+# no catch -> exception propagates up the call stack.
 ```
 
-Java:
-```java
+Cpp:
+```cpp
 void foo() {
-    // unchecked exception: any class that extends RuntimeException.
-    throw new RuntimeException("error message");
+    throw std::runtime_error("error message");
 }
 
-// not forced to handle exceptions.
-foo();
-```
-
-- Checked exceptions:
-
-Python: does not have checked exceptions.
-
-Java:
-```java
-void foo() throws CheckedException, CheckedException2 {
-    // checked exception: any class that extends Exception but not RuntimeException.
-    throw new CheckedException("error message");
-}
-
-// forced to handle exceptions.
 try {
     foo();
-} catch (CheckedException e) {
+} catch (const std::invalid_argument &e) {
     ...
-} catch (CheckedException2 e) {
+} catch (const std::exception &e) {
     ...
 }
+// no catch -> exception propagates up the call stack.
 ```
 
 ### Match statements, pattern matching
@@ -796,7 +825,7 @@ var ret = switch(x) {
 ### Binary search
 
 Python:
-```py
+```python
 v = [1, 2, 3]
 x = 1
 # both inclusive
@@ -833,7 +862,7 @@ return -1;
 ### DFS
 
 Python:
-```py
+```python
 visited = set()
 
 def dfs(node):
@@ -869,7 +898,7 @@ public static void dfs(int node, Map<Integer, List<Integer>> neighbours, Set<Int
 ### BFS
 
 Python:
-```py
+```python
 visited = set()
 # [(node, dist)]
 q = deque()
@@ -925,7 +954,7 @@ public static void bfs(Map<Integer, List<Integer>> neighbours, int start) {
 ### Dijkstra
 
 Python:
-```py
+```python
 visited = set()
 dist = {node:float("inf") for node in nodes}
 pq = []
@@ -996,7 +1025,7 @@ public static void dijkstra(Map<Integer, Map<Integer, Integer>> neighbours, int 
 ### DP
 
 Python:
-```py
+```python
 dp = [None for _ in range(0, n)]
 
 for i in range(0, n):
