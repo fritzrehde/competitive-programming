@@ -4,7 +4,7 @@
 
 ### Tuple
 
-Java doesn't have tuples, so we have two ways of mimicing them:
+Java doesn't have tuples, so we have two ways of mimicking them:
 
 1. We can pretend that a fixed size array is a tuple, but this isn't very type-safe, as the caller doesn't know how many elements the returned "tuple" contains.
 We're also restricted to one type.
@@ -592,6 +592,9 @@ Map<K, V> = keyStream.collect(Collectors.toMap(
 
 // get max value in stream.
 IntStream.range(0, m).flatMap(r -> IntStream.range(0, n).map(c -> dp[r][c])).max().orElse(0);
+
+// get max value in stream with comparator.
+T max = Stream.of(a, b).min(comparator).get();
 ```
 
 ### Exceptions
