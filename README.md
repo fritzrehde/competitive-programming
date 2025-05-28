@@ -4,6 +4,7 @@ This repository contains my solutions to competitive programming problems from v
 
 Each of the code solution files contains the problem description, several (differently performing) implementations, as well as time and space complexity analysis.
 
+**NOTE: I have stopped using this repo to track my solutions to problems I've solved, I'm just using the platforms themselves for now.**
 
 ## Table of Contents
 
