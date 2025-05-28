@@ -54,10 +54,10 @@ if (some := get_option()) is not None:
 else:
     ...
 
-value = some if (some := get_option()) is not None else getDefault()
+value = some if (some := get_option()) is not None else get_default()
 
 # get arg if non-None, else default value.
-value = some if (some := getSthOrNone()) is not None else default
+value = some if (some := get_option()) is not None else default_value
 
 match (opt_a, opt_b):
     case (None, None):
@@ -102,7 +102,7 @@ getOptional().ifPresentOrElse(
 var value = getOptional().orElseGet(() -> getDefault());
 
 // get arg if non-null, else default value.
-var value = Optional.ofNullable(getSthOrNone()).orElse(default);
+var value = Optional.ofNullable(getOptional()).orElse(defaultValue);
 
 if (optA.isEmpty() && optB.isEmpty()) {
     ...
@@ -180,14 +180,14 @@ x_str = str(x)
 c = a + b
 c = f"{a}{b}"
 
-// substring.
-// optional start: inclusive, optional end: exclusive, both can be out of bounds, which will truncate to start/end.
+# substring.
+# optional start: inclusive, optional end: exclusive, both can be out of bounds, which will truncate to start/end.
 sub = a[start:end]
 sub = a[:end]
 sub = a[start:]
 
-# find index of start of next occurence of substring in s[start:end].
-if (at_idx := s.find(substring, start, end)) != -1:
+# find index of start of next occurence of pattern in s[start:end].
+if (at_idx := s.find(pattern, start, end)) != -1:
     ...
 else:
     ...
@@ -226,9 +226,9 @@ c = String.format("%s%s", a, b);
 // substring that allocates, and start and end must be valid.
 String substring = a.substring(start, end);
 
-// find idx of next occurence.
+// find idx of next occurence of pattern.
 int idx;
-if ((idx = a.indexOf('l', start)) != -1) {
+if ((idx = a.indexOf(pattern, start)) != -1) {
     ...
 } else {
     ...
@@ -267,7 +267,7 @@ for (Character c : chars) {
 ### Hashset
 
 Python:
-```py
+```python
 s = set()
 s.add(elem)
 s.remove(elem)
@@ -285,7 +285,7 @@ boolean contains = s.contains(elem);
 ### Hashmap, defaultdict
 
 Python:
-```py
+```python
 d = dict()
 d = { "key": "value" }
 
@@ -355,7 +355,7 @@ for (var entry : d.getOrDefault(a, Map.of()).entrySet()) {
 ### Queue/deque
 
 Python:
-```py
+```python
 q = deque()
 q.append(x)
 q.appendleft(x)
@@ -375,14 +375,14 @@ T first = q.removeFirst();
 ### Heap
 
 Python:
-```py
-// min heap
+```python
+# min heap
 min_heap = []
 heappush(min_heap, x)
 x = -1 * min_heap[0]
 x = heappop(min_heap)
 
-// max heap
+# max heap
 max_heap = []
 heappush(max_heap, -x)
 x = -1 * heappop(max_heap)
@@ -406,7 +406,7 @@ int x = maxHeap.poll();
 ### BST
 
 Python:
-```py
+```python
 s = SortedSet()
 s.add(x)
 s.remove(x)
@@ -451,8 +451,8 @@ Integer key = d.ceilingKey(k);
 ### Sorting
 
 Python:
-```py
-v = [(1, 2), (2, 1), (3, 0)]
+```python
+v = [(1, "hi", 2), (2, "looong", 1), (3, "blah", 0)]
 
 # sort by key: asc by first, desc by len(snd), desc by third.
 def key(item):
@@ -694,7 +694,7 @@ var ret = switch(x) {
 ### Binary search
 
 Python:
-```py
+```python
 v = [1, 2, 3]
 x = 1
 # both inclusive
@@ -731,7 +731,7 @@ return -1;
 ### DFS
 
 Python:
-```py
+```python
 visited = set()
 
 def dfs(node):
@@ -767,7 +767,7 @@ public static void dfs(int node, Map<Integer, List<Integer>> neighbours, Set<Int
 ### BFS
 
 Python:
-```py
+```python
 visited = set()
 # [(node, dist)]
 q = deque()
@@ -823,7 +823,7 @@ public static void bfs(Map<Integer, List<Integer>> neighbours, int start) {
 ### Dijkstra
 
 Python:
-```py
+```python
 visited = set()
 dist = {node:float("inf") for node in nodes}
 pq = []
@@ -894,7 +894,7 @@ public static void dijkstra(Map<Integer, Map<Integer, Integer>> neighbours, int 
 ### DP
 
 Python:
-```py
+```python
 dp = [None for _ in range(0, n)]
 
 for i in range(0, n):
