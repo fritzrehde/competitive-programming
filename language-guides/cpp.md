@@ -797,28 +797,35 @@ match x:
         ret = 30
 ```
 
-Java:
-```java
-int x = 10;
+Cpp:
+```cpp
+// Switch statement.
 switch (x) {
-    case 1 -> System.out.println("a");
-    case 10, 20 -> {
-        System.out.println("b");
-    }
-    default -> System.out.println("c");
-};
+    case 1:
+        std::cout << "a\n";
+        break;
+    case 10: // fall through.
+    case 20:
+        std::cout << "b\n";
+        break;
+    default:
+        std::cout << "c\n";
+        break;
+}
 
-// switch as expression.
-var ret = switch(x) {
-    case 1 -> 10;
-    case 10 -> {
-        System.out.println("printing stuff");
-        yield 20;
+// Switch statement as "expression" (wrapped in lambda).
+int ret = [&](){
+    switch (x) {
+        case 1:   return 10;
+        case 10:
+            std::cout << "printing stuff\n";
+            return 20;
+        default:  return 30;
     }
-    default -> 30;
-};
+}();
+
+// TODO: std::variant and std::visit
 ```
-
 
 ## Algorithms
 
@@ -832,28 +839,34 @@ x = 1
 l, r = 0, len(v)-1
 while l <= r:
     m = (l + r) // 2
-    if x < v[m]:
+    if x == v[m]:
+        return m
+    elif x < v[m]:
         # search left
         r = m-1
     elif v[m] < x:
         # search right
         l = m+1
-    else:
-        return m
 return -1
 ```
 
-Java:
-```java
-int l = 0, r = v.length - 1;
+Cpp:
+```cpp
+std::vector<int> v{1, 2, 3};
+int x = 1;
+int l = 0;
+int r = v.size() - 1;
 while (l <= r) {
+    // avoid overflow
     int m = l + (r - l) / 2;
-    if (x < v[m]) {
-        r = m - 1;
-    } else if (v[m] < x) {
-        l = m + 1;
-    } else {
+    if (x == v[m]) {
         return m;
+    } else if (x < v[m]) {
+        // search left
+        r = m - 1;
+    } else if (x > v[m]) {
+        // search right
+        l = m + 1;
     }
 }
 return -1;
@@ -876,23 +889,23 @@ def dfs(node):
 dfs(start)
 ```
 
-Java:
-```java
-public static void main(String[] args) {
-    Map<Integer, List<Integer>> neighbours = new HashMap<>();
-    Set<Integer> visited = new HashSet<>();
-    dfs(start, neighbours, visited);
-}
+Cpp:
+```cpp
+std::unordered_map<int, std::vector<int>> neighbours = {};
+std::unordered_set<int> visited;
 
-public static void dfs(int node, Map<Integer, List<Integer>> neighbours, Set<Integer> visited) {
-    if (visited.contains(node)) {
+// recursive lambda via std::function (type erasure).
+std::function<void(int)> dfs = [&](int node) {
+    if (visited.count(node) > 0)
         return;
-    }
-    visited.add(node);
-    for (int neighbour : neighbours.getOrDefault(node, new ArrayList<>())) {
+    visited.insert(node);
+
+    for (int neighbour : neighbours[node]) {
         dfs(neighbour);
     }
-}
+};
+
+dfs(start);
 ```
 
 ### BFS
@@ -919,37 +932,36 @@ while len(q) > 0:
         q.append((neighbour, dist+1))
 ```
 
-Java:
-```java
-public record NodeDistance(int node, int dist) {}
+Cpp:
+```cpp
+std::unordered_map<int, std::vector<int>> neighbours = {};
 
-public static void main(String[] args) {
-    Map<Integer, List<Integer>> neighbours = new HashMap<>();
-    bfs(neighbours, start);
-}
+std::unordered_map<int,int> node_to_dist;
+std::unordered_set<int> visited;
+// [(node, dist)]
+std::queue<std::pair<int,int>> q;
 
-public static void bfs(Map<Integer, List<Integer>> neighbours, int start) {
-    Set<Integer> visited = new HashSet<>();
-    Map<Integer, Integer> nodeToDist = new HashMap<>();
-    // [(node, distance)]
-    Queue<NodeDistance> q = new ArrayDeque<>();
+// clear state if reusing
+while (!q.empty()) q.pop();
+visited.clear();
+node_to_dist.clear();
 
-    q.add(new NodeDistance(start, 0));
-    visited.add(start);
+q.push({start, 0});
+visited.insert(start);
 
-    while (!q.isEmpty()) {
-        NodeDistance x = q.poll();
-        nodeToDist.put(x.node(), x.dist());
-        for (int neighbour : neighbours.getOrDefault(x.node(), List.of())) {
-            if (visited.contains(neighbour))
-                continue;
-            visited.add(neighbour);
-            q.add(new NodeDistance(neighbour, x.dist() + 1));
-        }
+while (!q.empty()) {
+    auto [node, dist] = q.front(); q.pop();
+
+    node_to_dist[node] = dist;
+
+    for (int neighbour: neighbours[node]) {
+        if (visited.count(neighbour) > 0)
+            continue;
+        visited.insert(neighbour);
+        q.push({neighbour, dist + 1});
     }
 }
 ```
-
 
 ### Dijkstra
 
@@ -978,46 +990,39 @@ while len(pq) > 0:
         heappush(pq, (dist[node]+w, neighbour))
 ```
 
-Java:
-```java
-public static void main(String[] args) {
-    Map<Integer, Map<Integer, Integer>> neighbours = new HashMap<>();
-    int start = 0;
-    dijkstra(neighbours, start);
+Cpp:
+```cpp
+// map from node to (map from neighbour to weight).
+std::unordered_map<int, std::unordered_map<int, int>> neighbours;
+
+std::unordered_map<int,int> node_to_dist;
+std::unordered_set<int> visited;
+
+// min heap([(distance, node)])
+using NodeDist = std::pair<int, int>;
+std::priority_queue<NodeDist, std::vector<NodeDist>, std::greater<NodeDist>> pq;
+
+// initialize distances to infinity.
+for (auto const& [node, _] : neighbours) {
+    dist[node] = std::numeric_limits<int>::max();
 }
+// start at distance 0.
+dist[start] = 0;
+pq.push({0, start});
 
-public record DistNode(int dist, int node) {}
+while (!pq.empty()) {
+    auto [d, node] = pq.top(); pq.pop();
 
-public static void dijkstra(Map<Integer, Map<Integer, Integer>> neighbours, int start) {
-    Set<Integer> visited = new HashSet<>();
-    Map<Integer, Integer> dist = new HashMap<>();
-    for (int node : neighbours.keySet()) {
-        dist.put(node, Integer.MAX_VALUE);
-    }
-    PriorityQueue<DistNode> pq = new PriorityQueue<>(Comparator.comparingInt(DistNode::dist));
+    if (visited.count(node) > 0) 
+        continue;
+    visited.insert(node);
 
-    dist.put(start, 0);
-    pq.add(new DistNode(dist.get(start), start));
+    node_to_dist[node] = d;
 
-    while (!pq.isEmpty()) {
-        DistNode x = pq.poll();
-        int d = x.dist();
-        int node = x.node();
-
-        if (visited.contains(node))
+    for (auto const& [neighbour, w] : neighbours[node]) {
+        if (visited.count(neighbour) > 0) 
             continue;
-        visited.add(node);
-        
-        dist.put(node, d);
-
-        for (Map.Entry<Integer, Integer> entry : neighbours.getOrDefault(node, Map.of()).entrySet()) {
-            int neighbour = entry.getKey();
-            int weight = entry.getValue();
-            if (visited.contains(neighbour))
-                continue;
-
-            pq.add(new DistNode(d + weight, neighbour));
-        }
+        pq.push({d + w, neighbour});
     }
 }
 ```
@@ -1037,17 +1042,17 @@ for i in range(0, n):
 return dp[n-1]
 ```
 
-Java:
-```java
-int[] dp = new int[n];
-List<Integer> dp = new ArrayList<>(Collections.nCopies(n, -1));
-for (int i = 0; i < n; i++) {
+Cpp:
+```cpp
+std::vector<int> dp(n, -1);
+
+for (int i = 0; i < n; ++i) {
     if (i <= 1) {
         dp[i] = 1;
     } else {
-        dp[i] = dp[i - 1] + dp[i - 2];
+        dp[i] = dp[i-1] + dp[i-2];
     }
 }
-return dp[n - 1];
-```
 
+return dp[n-1];
+```
