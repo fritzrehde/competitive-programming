@@ -146,21 +146,112 @@ TODO
 ### Binary search
 
 ```python
-v = [1, 2, 3]
-x = 1
-# both inclusive
-l, r = 0, len(v)-1
-while l <= r:
-    m = (l + r) // 2
-    if x < v[m]:
-        # search left
-        r = m-1
-    elif v[m] < x:
-        # search right
-        l = m+1
-    else:
-        return m
-return -1
+# idx of any idx where nums[idx] == x
+def contains(nums, x) -> int | None:
+    n = len(nums)
+    l, r = 0, n-1
+
+    while l <= r:
+        m = (l + r) // 2
+        if nums[m] == x:
+            return m
+        elif x < nums[m]:
+            # search left
+            r = m-1
+        elif nums[m] < x:
+            # search right
+            l = m+1
+
+    return None
+
+
+# idx of smallest value >= x, or n if none
+def bisect_left(nums, x) -> int:
+    n = len(nums)
+    l, r = 0, n-1
+    best_so_far = n
+
+    while l <= r:
+        m = (l + r) // 2 # or l + (r-l) // 2
+        if nums[m] >= x:
+            best_so_far = m
+            # might be even smaller value left of us
+            r = m-1
+        else:
+            # search right
+            l = m+1
+
+    return best_so_far
+
+
+# idx of smallest value > x, or n if none
+def bisect_right(nums, x) -> int:
+    n = len(nums)
+    l, r = 0, n-1
+    best_so_far = n
+
+    while l <= r:
+        m = (l + r) // 2 # or l + (r-l) // 2
+        if nums[m] > x:
+            best_so_far = m
+            # might be even smaller value left of us
+            r = m-1
+        else:
+            # search right
+            l = m+1
+
+    return best_so_far
+
+
+# idx of smallest value x such that f(x) is true
+def leftmost_true(f, l, r) -> int | None:
+    best_so_far = None
+
+    while l <= r:
+        m = l + (r - l) // 2
+        if f(m):
+            best_so_far = m;
+            # see if even smaller is available -> search left
+            r = m-1
+        else:
+            # everything left is impossible -> search right
+            l = m+1
+
+    return best_so_far
+
+
+# idx of largest value x such that f(x) is true
+def rightmost_true(f, l, r) -> int | None:
+    best_so_far = None
+
+    while l <= r:
+        m = l + (r - l) // 2
+        if f(m):
+            best_so_far = m;
+            # see if even larger is available -> search right
+            l = m+1
+        else:
+            # everything right is impossible -> search left
+            r = m-1
+
+    return best_so_far
+
+
+# idx of largest float value x such that f(x) is true
+def rightmost_true_float(f, l, r, precision) -> int | None:
+    best_so_far = None
+
+    while (r - l) > precision:
+        m = l + (r - l) / 2
+        if f(m):
+            best_so_far = m;
+            # see if even larger is available -> search right
+            l = m
+        else:
+            # everything right is impossible -> search left
+            r = m
+
+    return best_so_far
 ```
 
 ### DFS
