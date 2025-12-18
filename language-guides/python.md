@@ -270,6 +270,24 @@ def dfs(node):
 dfs(start)
 ```
 
+With cycle detection:
+```python
+visited = set()
+in_stack = set()
+
+def dfs(node):
+    if neighbour in in_stack:
+        raise Exception("detected cycle")
+    if node in visited:
+        return
+    visited.add(node)
+
+    in_stack.add(node)
+    for neighbour in neighbours[node]:
+        dfs(neighbour)
+    in_stack.remove(node)
+```
+
 ### BFS
 
 ```python
